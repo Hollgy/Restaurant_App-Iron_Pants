@@ -3,7 +3,7 @@ const menuList = [
 		item: 'Hård taco',
 		id: 1,
 		filling: [{ name: 'Kyckling', image: '' }, { name: 'Nötkött', image: '' }, { name: 'Svarta bönor', image: '' }],
-		Ingredients: [{ name: 'Isbergssallad', image: '' }, { name: 'Tomat', image: '' }, { name: 'Ost', image: '' }, { name: 'Gräddfil', image: '' }],
+		ingredients: [{ name: 'Isbergssallad', image: '' }, { name: 'Tomat', image: '' }, { name: 'Ost', image: '' }, { name: 'Gräddfil', image: '' }],
 		extra: [{ name: 'Guacamole', image: '' }, { name: 'Salsa', image: '' }, { name: 'Nachos', image: '' }]
 	},
 
@@ -11,7 +11,7 @@ const menuList = [
 		item: 'Mjuk taco',
 		id: 2,
 		filling: [{ name: 'Kyckling', image: '' }, { name: 'Nötkött', image: '' }, { name: 'Svarta bönor', image: '' }],
-		Ingredients: [{ name: 'Isbergssallad', image: '' }, { name: 'Tomat', image: '' }, { name: 'Ost', image: '' }, { name: 'Gräddfil', image: '' }],
+		ingredients: [{ name: 'Isbergssallad', image: '' }, { name: 'Tomat', image: '' }, { name: 'Ost', image: '' }, { name: 'Gräddfil', image: '' }],
 		extra: [{ name: 'Guacamole', image: '' }, { name: 'Salsa', image: '' }, { name: 'Nachos', image: '' }]
 	},
 
@@ -19,7 +19,7 @@ const menuList = [
 		item: 'Burrito',
 		id: 3,
 		filling: [{ name: 'Kyckling', image: '' }, { name: 'Nötkött', image: '' }, { name: 'Quorn', image: '' }],
-		Ingredients: [{ name: 'Isbergssallad', image: '' }, { name: 'Tomat', image: '' }, { name: 'Ost', image: '' }, { name: 'Ris', image: '' }, { name: 'Svarta bönor', image: '' }],
+		ingredients: [{ name: 'Isbergssallad', image: '' }, { name: 'Tomat', image: '' }, { name: 'Ost', image: '' }, { name: 'Ris', image: '' }, { name: 'Svarta bönor', image: '' }],
 		extra: [{ name: 'Guacamole', image: '' }, { name: 'Salsa', image: '' }, { name: 'Nachos', image: '' }, { name: 'Gräddfil', image: '' }]
 	},
 
@@ -27,7 +27,7 @@ const menuList = [
 		item: 'Quesadilla',
 		id: 4,
 		filling: [{ name: 'Kyckling', image: '' }, { name: 'Nötkött', image: '' }, { name: 'Svarta bönor', image: '' }],
-		Ingredients: [{ name: 'Ost', image: '' }, { name: 'Jalapeños', image: '' }],
+		ingredients: [{ name: 'Ost', image: '' }, { name: 'Jalapeños', image: '' }],
 		extra: [{ name: 'Guacamole', image: '' }, { name: 'Salsa', image: '' }, { name: 'Nachos', image: '' }, { name: 'Gräddfil', image: '' }]
 	},
 ]

@@ -1,0 +1,8 @@
+.start-menu {
+	padding: 2em;
+	border: 1px solid black;
+}
+
+.hidden {
+	display: none;
+}
