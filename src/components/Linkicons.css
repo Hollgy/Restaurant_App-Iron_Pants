@@ -4,45 +4,56 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     width: 300px;
-    height: 300px;
+    height: 320px;
+    margin: 50px;
 }
 
-.linkicon1,
-.linkicon2,
-.linkicon3,
-.linkicon4 {
+.icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    text-align: center;
+    font-family: 'Mouse Memoirs', sans-serif;
     width: 100px;
     height: 100px;
     cursor: pointer;
+    padding: 15px;
+}
+
+
+.figure {
     box-shadow: 0px 4px 4px #BABEB8;
-    transition: all 0.2s ease-in-out; 
+    transition: all 0.2s ease-in-out;
     border-radius: 0.15em;
 }
 
-.linkicon1:hover,
-.linkicon2:hover,
-.linkicon3:hover,
-.linkicon4:hover {
-    transform: scale(1.1);
-}
-
-
 .linkicon1 {
     background-color: #DD5555;
-    padding: 15px;
 }
 
 .linkicon2 {
     background-color: #5CB74A;
-    padding: 15px;
 }
 
 .linkicon3 {
     background-color: #F592CB;
-    padding: 15px;
 }
 
 .linkicon4 {
     background-color: #FF9F61;
-    padding: 15px;
+}
+
+.icontext {
+    font-size: larger;
+    color: black;
+    text-align: center;
+    font-family: 'Mouse Memoirs', sans-serif;
+}
+
+@media (min-width: 800px) {
+    .figure:hover {
+        transform: scale(0.9);
+    }
 }
