@@ -9,22 +9,22 @@ function Linkicons() {
     return (
         <section className='Buttongroup'>
             <div>
-                <a>
+                <a href=''>
                     <img className='linkicon1' src={ButtonImage1} alt="Button 1" />
                 </a>
             </div>
             <div>
-                <a>
+                <a href=''>
                     <img className='linkicon2' src={ButtonImage2} alt="Button 2" />
                 </a>
             </div>
             <div>
-                <a>
+                <a href=''>
                     <img className='linkicon3' src={ButtonImage3} alt="Button 3" />
                 </a>
             </div>
             <div>
-                <a>
+                <a href=''>
                     <img className='linkicon4' src={ButtonImage4} alt="Button 4" />
                 </a>
             </div>
