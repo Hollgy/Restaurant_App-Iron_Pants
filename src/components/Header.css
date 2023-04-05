@@ -1,13 +1,20 @@
 
 .header-logo {
-    display: flex;
-    justify-content: center;
 	padding: 1em;
 	background-color: #2C4906;
     height: 10vh;
     width: 100vw;
 }
+.logo-div{
+    display: flex;
+    justify-content: center;
+}
 .logo{
     width: 100px;
     height: 100px;
+}
+
+.hamburgar-meny{
+    position: absolute;
+    right: .5em;
 }
