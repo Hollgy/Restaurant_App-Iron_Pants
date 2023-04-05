@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    color: white;
+    background-color: #2C4906;
+    height: 20vh;
+    padding: 3em;
+    font-size: 22px;
+}
+
+a {
+    list-style-type: none;
+    text-decoration: none;
+    color: white;
+}
