@@ -5,7 +5,7 @@ import Footer from './components/Footer.jsx'
 import Body from './components/Body.jsx'
 import Menu from './components/Menu.jsx'
 import Linkicons from './components/Linkicons'
-import Background from './components/background'
+// import Background from './components/background'
 import AboutUs from './components/About.jsx'
 import './App.css'
 import './components/Header.css'
@@ -15,7 +15,7 @@ import './components/Navbar.css'
 import './components/Menu.css'
 import './components/Linkicons.css'
 import './components/Background.css'
-
+// import './components/About.css'
 function App() {
     const [menu, setMenu] = useState(menuList)
     // menu.forEach(item => console.log(item.item))
