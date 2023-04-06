@@ -9,8 +9,8 @@
 .header-logo {
 	padding: .5em;
 	background-color: #2C4906;
-    height: 10vh;
-    width: 100vw;
+    /* height: 10%; */
+    width: 100%;
 }
 .logo-div{
     display: flex;
@@ -21,7 +21,7 @@
     height: 100px;
     z-index: 1;
 }
-
+ 
 .hamburgar-meny{
     position: absolute;
     right: .5em;
