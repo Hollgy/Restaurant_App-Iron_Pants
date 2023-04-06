@@ -6,11 +6,13 @@
     align-items: center;
 }
 .image{
-    margin-bottom: 100px;
-    width: 500px;
+    /* margin-bottom: 100px; */
+    width: 100%;
     position: relative;
+    top: .010em;
 }
 img{
+    height: 75vh;
     width: 100%;
     display: block;
     margin: auto;
@@ -34,7 +36,8 @@ img{
     }
 .content a{
     font-family: 'Tajawal';
-    font-size: 45px;
+    font-size: 35px;
     color: #ED8E5D;
     margin-bottom: 15px;
+    text-shadow: -1px 1px  1px rgb(255, 242, 242);
 }
