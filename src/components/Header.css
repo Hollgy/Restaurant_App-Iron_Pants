@@ -2,14 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
 }
 
 
 .header-logo {
 	padding: .5em;
 	background-color: #2C4906;
-    /* height: 10%; */
+    height: 10vh;
     width: 100%;
 }
 .logo-div{

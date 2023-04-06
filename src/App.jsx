@@ -14,6 +14,7 @@ import './components/Navbar.css'
 import './components/Menu.css'
 import './components/Linkicons.css'
 import './components/Background.css'
+import './components/Signin.css'
 
 function App() {
     const [menu, setMenu] = useState(menuList)
