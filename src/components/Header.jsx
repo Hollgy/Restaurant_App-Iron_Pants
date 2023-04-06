@@ -2,11 +2,13 @@
 import Hamburger from "hamburger-react";
 import React, { useState } from 'react';
 import {data} from "./NavBarData"
+import LoggaInInput from "./Signin"
 
 const Header = () => {
     const [isOpen, setOpen] = useState(false)
 
     
+
 
     return (
         <header>
@@ -32,15 +34,13 @@ const Header = () => {
                                 ))}
                         </ul>
                     <hr />
-                    <div className="logga-in">
-                        <img className="inloggning-img" src="/public/images/Vector.png" alt="Logotype"/>
-                        <p className="logga-in-paragraf">Personal inloggning</p>
-                    </div>
+                        <LoggaInInput/>
                     </nav>
              
             </div>
         </header>
     );
 };
+
 
 export default Header;
