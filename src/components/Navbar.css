@@ -33,6 +33,7 @@
     padding: .5em;
     font-size: 22px;
 	background-color: #2C4906;
+    z-index: 1;
 }
 
 
