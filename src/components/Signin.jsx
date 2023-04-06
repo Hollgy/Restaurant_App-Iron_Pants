@@ -14,6 +14,7 @@ import React, { useState } from 'react';
             </div>
 
             <div className={clicked} >
+                <p className="logga-in-paragraf-desktop"> <span className="span-1"> Personal inlo</span>gg<span className="span-2">nin</span>g</p>
                 <label htmlFor="anställningsnummer">Anställningsnummer</label>
                 <input id="anställningsnummer" type="text" />
                 <label htmlFor="lösenord">Lösenord</label>

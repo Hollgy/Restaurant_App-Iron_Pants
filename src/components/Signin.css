@@ -41,18 +41,12 @@
     flex-direction: column;
 }
 
+.logga-in-paragraf-desktop{
+    display: none;
+}
+
 
 @media (min-width: 984px) {
-    .inloggning-img{
-        position: absolute;
-        top: 2.6em;
-        right: 1em;
-        margin: 0;
-        align-self: center;
-        align-items: center;
-        transition: all 2s;
-        
-    }
 
     .clicked{
         display: flex;
@@ -61,11 +55,11 @@
         font-size: 26px;
         color: white;
         position: absolute;
-        top: 4em;
-        right: 0;
-        padding: 2em;
+        top: 2.7em;
+        right: -2.550em;
+        padding: 3em;
         background-color: #2C4906;
-        transition: all 2s ease-in-out;
+        transition: all .5s ease-in-out;
         z-index: 1;
     }
     .clicked {
@@ -77,14 +71,20 @@
         font-size: 26px;
         text-align: center;
     }
+    .logga-in-paragraf-desktop{
+        display: block;
+        margin-bottom: 1em;
+        font-size: 30px;
+        text-align: center;
+    }
 
   }
 
-@media (max-width: 984px) {
+/* @media (max-width: 984px) {
     .header-nav-desktop ul  {
         display: none;
         transition: all 2s;
     } 
 
 
- }
+ } */

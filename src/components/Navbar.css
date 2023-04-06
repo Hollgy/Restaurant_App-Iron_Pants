@@ -7,6 +7,7 @@
 
 
 
+
 .nav-wrapper {
     display: flex;
     justify-content: center;
@@ -93,6 +94,13 @@ hr{
 }
 
 @media (min-width: 984px) {
+    .nav-wrapper-active, .nav-wrapper{ 
+        flex-direction: row;
+        height: 1vh;
+        flex-wrap: wrap; 
+        gap: 2em;
+
+    }
     hr{
         display: none;
     }
