@@ -36,6 +36,7 @@
     font-size: 22px;
 	background-color: #2C4906;
     z-index: 1;
+
 }
 
 
@@ -89,4 +90,32 @@ hr{
     text-decoration: underline;
     text-decoration-color: #0F7138 ;
     text-decoration-thickness: 3px;
+}
+
+@media (min-width: 984px) {
+    hr{
+        display: none;
+    }
+  .hamburgar-meny  {
+        display: none;
+        transition: all 2s;
+    }
+    .header-nav ul{
+        display: flex;
+        flex-direction: row;
+        gap: 2em;
+        font-size: 22px;
+        flex-wrap: wrap;
+        transition: all 2s;
+    }
+    .header-nav nav{
+        position: absolute;
+        top: 1.5em;
+        right: 3em;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        flex-wrap: wrap;
+        transition: all 2s;
+    }
 }

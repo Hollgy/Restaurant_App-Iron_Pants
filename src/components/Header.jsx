@@ -3,23 +3,27 @@ import Hamburger from "hamburger-react";
 import React, { useState } from 'react';
 import {data} from "./NavBarData"
 import LoggaInInput from "./Signin"
+import NavBarDesktop from "./Navbardesktop"
 
 const Header = () => {
     const [isOpen, setOpen] = useState(false)
     return (
         <header>
             <div className="header-logo">
+
                 <div className="hamburgar-meny">
                 <Hamburger toggled={isOpen} toggle={setOpen} color="white" />
                 </div>
+
                 <div className="logo-div">
                     <img
                         className="logo"
                         src="/public/images/LOGO.png"
                         alt="Logotype"
-                    />
+                        />
                 </div>
             </div>
+                        {/* <NavBarDesktop/> */}
 
             <div className="header-nav">
               
