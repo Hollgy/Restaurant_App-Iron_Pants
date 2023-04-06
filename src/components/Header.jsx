@@ -6,10 +6,6 @@ import LoggaInInput from "./Signin"
 
 const Header = () => {
     const [isOpen, setOpen] = useState(false)
-
-    
-
-
     return (
         <header>
             <div className="header-logo">
