@@ -6,9 +6,10 @@
     align-items: center;
 }
 .image{
-    margin-bottom: 100px;
-    width: 500px;
+    /* margin-bottom: 100px; */
+    width: 100%;
     position: relative;
+    top: .010em;
 }
 img{
     width: 100%;
