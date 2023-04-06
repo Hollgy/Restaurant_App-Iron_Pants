@@ -14,11 +14,12 @@
     flex-direction: column;
     position: absolute;
     right: -200%;;
-    transition: all 0.5s ease;
+    transition: all 0.5s ease-out;
     color: white;
     padding: 2em;
     font-size: 22px;
 	background-color: #2C4906;
+    z-index: 1;
 }
 .nav-wrapper-active {
     display: flex;
@@ -28,7 +29,7 @@
     flex-direction: column;
     position: absolute;
     right: 0%;;
-    transition: all 0.5s ease;
+    transition: all 0.5s ease-in;
     color: white;
     padding: .5em;
     font-size: 22px;
