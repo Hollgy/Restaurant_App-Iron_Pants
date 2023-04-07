@@ -1,15 +1,4 @@
-.not-clicked{
-    display: none;
-    justify-content: center;
-    flex-direction: column;
-}
 
-.clicked{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    animation: fadeIn .3s ease-in;
-}
 
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -17,8 +6,14 @@
     }
 
 
-.logga-in-input input{
+.clicked input{
     margin-bottom: 1em;
+    padding: .2em;
+}
+
+.clicked label{
+    font-size: 22px;
+    padding-bottom: .2em;
 }
 
 .logga-in-btn{
@@ -35,11 +30,7 @@
     color: white;
 }
 
-.not-clicked-desktop{
-    display: none;
-    justify-content: center;
-    flex-direction: column;
-}
+
 
 .logga-in-paragraf-desktop{
     display: none;
@@ -47,24 +38,6 @@
 
 
 @media (min-width: 984px) {
-
-    .clicked{
-        display: flex;
-        flex-direction: column;
-        gap: .2em;
-        font-size: 26px;
-        color: white;
-        position: absolute;
-        top: 2.7em;
-        right: -2.550em;
-        padding: 3em;
-        background-color: #2C4906;
-        transition: all .5s ease-in-out;
-        z-index: 1;
-    }
-    .clicked {
-        font-size: 26px;
-    }
     .logga-in-paragraf{
         display: none;
         margin-bottom: 1em;
@@ -77,14 +50,12 @@
         font-size: 30px;
         text-align: center;
     }
+    .clicked input{
+        padding: .5em;
+    }
+    .clicked button{
+        cursor: pointer;
+        font-size: 26px;
+    }
 
   }
-
-/* @media (max-width: 984px) {
-    .header-nav-desktop ul  {
-        display: none;
-        transition: all 2s;
-    } 
-
-
- } */

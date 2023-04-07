@@ -13,6 +13,7 @@ import React, { useState } from 'react';
                 <p onClick={toggleLoggin}  className="logga-in-paragraf"> <span className="span-1"> Personal inlo</span>gg<span className="span-2">nin</span>g</p>
             </div>
 
+
             <div className={clicked} >
                 <p className="logga-in-paragraf-desktop"> <span className="span-1"> Personal inlo</span>gg<span className="span-2">nin</span>g</p>
                 <label htmlFor="anställningsnummer">Anställningsnummer</label>
@@ -21,7 +22,6 @@ import React, { useState } from 'react';
                 <input id="lösenord" type="password" />
                 <button className="logga-in-btn"> Logga In</button>
              </div>
-
         </div>
     )
 }

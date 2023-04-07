@@ -3,7 +3,7 @@ import Hamburger from "hamburger-react";
 import React, { useState } from 'react';
 import {data} from "./NavBarData"
 import LoggaInInput from "./Signin"
-import NavBarDesktop from "./Navbardesktop"
+
 
 const Header = () => {
     const [isOpen, setOpen] = useState(false)
@@ -23,7 +23,6 @@ const Header = () => {
                         />
                 </div>
             </div>
-                        {/* <NavBarDesktop/> */}
 
             <div className="header-nav">
               
