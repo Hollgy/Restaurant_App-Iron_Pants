@@ -1,15 +1,4 @@
-.not-clicked{
-    display: none;
-    justify-content: center;
-    flex-direction: column;
-}
 
-.clicked{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    animation: fadeIn .3s ease-in;
-}
 
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -17,8 +6,14 @@
     }
 
 
-.logga-in-input input{
+.clicked input{
     margin-bottom: 1em;
+    padding: .2em;
+}
+
+.clicked label{
+    font-size: 22px;
+    padding-bottom: .2em;
 }
 
 .logga-in-btn{
@@ -34,3 +29,33 @@
     background-color: #F35836;
     color: white;
 }
+
+
+
+.logga-in-paragraf-desktop{
+    display: none;
+}
+
+
+@media (min-width: 984px) {
+    .logga-in-paragraf{
+        display: none;
+        margin-bottom: 1em;
+        font-size: 26px;
+        text-align: center;
+    }
+    .logga-in-paragraf-desktop{
+        display: block;
+        margin-bottom: 1em;
+        font-size: 30px;
+        text-align: center;
+    }
+    .clicked input{
+        padding: .5em;
+    }
+    .clicked button{
+        cursor: pointer;
+        font-size: 26px;
+    }
+
+  }
