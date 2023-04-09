@@ -7,7 +7,6 @@
 
 
 
-
 .nav-wrapper {
     display: none;
     justify-content: center;
@@ -149,8 +148,8 @@ hr{
         font-size: 26px;
         color: white;
         position: absolute;
-        top: 1.8em;
-        right: -2.76em;
+        top: 2.4em;
+        right: -2.5em;
         padding: 3em;
         background-color: #2C4906;
         transition: all .5s ease-in-out;
