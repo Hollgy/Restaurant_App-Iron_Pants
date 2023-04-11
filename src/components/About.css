@@ -1,23 +1,21 @@
-
-  
-  .about {
+.about {
     background-image: url('/public/images/about_backdrop.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
     height: 100vh;
-    
-  }
 
-  .header-paragraf{
+}
+
+.header-paragraf {
 
     width: 210px;
     height: 200px;
-    
-  }
-  
-  .about p {
+
+}
+
+.about p {
     font-size: 20px;
     color: #fff;
     text-align: center;
@@ -26,66 +24,69 @@
     font-family: Mouse Memoirs;
     line-height: 1.5em;
 
-  }
+}
 
-  .about p:last-child{ 
+.about p:last-child {
     font-size: 24px;
-  }
+}
 
-  .chili-bg{
+.chili-bg {
     display: none;
-  }
+}
 
 
-  @media screen and (min-width: 992px) {
+@media screen and (min-width: 992px) {
     .about-wrapper {
         overflow-y: hidden;
         overflow-x: hidden;
-        position: relative;             
+        position: relative;
         /* position: relative; */
         width: 100%;
         max-height: 100vh;
         display: flex;
         justify-content: center;
-        background-color:#0e0e0e ;
+        background-color: #0e0e0e;
     }
-    
-    .header-paragraf{
+
+    .header-paragraf {
         align-self: center;
         margin: 0;
         margin-bottom: 5em;
     }
-    .about{
+
+    .about {
         display: flex;
         flex-direction: column;
         justify-content: center;
         background-position: center;
         width: 70%;
     }
-    .about p{
+
+    .about p {
         align-self: center;
         text-align: center;
         width: 70%;
         font-size: 24px;
     }
 
-    .chili-bg{
+    .chili-bg {
         display: block;
         width: 250px;
         height: 400px;
     }
 
-    .chili-bg-right{
+    .chili-bg-right {
         position: absolute;
-        top: -12em ;
+        top: -12em;
         right: -7em;
         transform: rotate(-130deg) translateX(10px);
     }
-    .chili-bg-left{
+
+    .chili-bg-left {
         position: absolute;
-        bottom: -8em ;
+        bottom: -8em;
         left: -3em;
         transform: rotate(-15deg);
-        
+
     }
-  }
+}
