@@ -1,0 +1,146 @@
+.form-wrapper{
+    padding: 1em 0;
+    font-family: Mouse Memoirs;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4em;
+    width: 100%;
+    background-color:#8ACE80 ;
+}
+.form-inner{
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+    width: 90%;
+    background-color: white;
+    padding: 2em;
+}
+h1{
+    text-align: center;
+}
+/* inputs börjar här */
+.form-inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.form-inputs label{
+    font-size: 22px;
+
+}
+hr{
+    border-color: black;
+}
+.form-inputs input{
+    font-size: 18px;
+    margin-bottom: 1em;
+    background-color:#8ACE80 ;
+    border: none;
+}
+.form-inputs input:focus{
+    border: .5px solid black;
+
+}
+/* inputs slutar här */
+
+
+/* radio buttons här */
+
+.eat-place{
+    font-size: 22px;
+}
+.eat-place input{
+    accent-color: #8ACE80  ;
+    width: 50%;
+    border: 0;
+    height: 2em;
+    align-self: center;
+}
+
+.eat-here-div{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1em;
+    gap: 1em;
+}
+.take-away-div{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: .5em;
+}
+
+label{
+    width: 200px;
+}
+.take-away-div label {
+    margin-right: 1em;
+}
+/* radio buttons slutar här */
+
+.price-paragraf{
+    display: flex;
+    gap: 3em;
+    font-size: 22px;
+    align-self: center;
+
+}
+
+.send-order{
+    font-family: Mouse Memoirs;
+    background-color: #8ACE80;
+    font-size: 24px;
+    border: none;
+    padding: .5em 1em;
+
+}
+
+
+
+
+
+/* media queries här */
+@media screen and (min-width: 992px) {
+    .form-wrapper{
+        font-size: 26px ;
+        background-color: #8ACE80;
+    }
+    .form-inner{
+        width: 50%;
+        align-items: center;
+        padding: 2em;
+    }
+    label  {
+        font-size: 24px;
+        width: 400px;
+    }
+    .price-paragraf {
+        font-size: 24px;
+        gap: 10em;
+    }
+
+
+    .send-order{
+        font-size: 26px;
+        border: 1px solid #8ACE80;
+        cursor: pointer;
+        background: linear-gradient(to right, #8ACE80 50%, white 50%);
+        background-size: 200% 100%;
+        background-position: right bottom;
+        transition: all .5s ease-out;
+    
+    }
+    
+    .send-order:hover {
+        background-position: left bottom;
+      }
+
+      input{
+        padding: .5em;
+        border-radius: 6px;
+      }
+
+
+}
