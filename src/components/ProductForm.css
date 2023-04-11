@@ -1,0 +1,31 @@
+
+.food-item{
+    display: block;
+    width: 300px;
+    padding: 15px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 6px 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(242, 247, 240, 1);
+}
+
+.delete.food {
+    /* margin-left: 20px; */
+    /* width: ; */
+}
+
+.food-image{
+    height: 140px;
+    width: 150px;
+}
+.food-name{
+    /* color: white; */
+}
