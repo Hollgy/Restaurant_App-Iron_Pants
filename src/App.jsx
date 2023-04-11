@@ -15,7 +15,7 @@ import './components/Navbar.css'
 import './components/Menu.css'
 import './components/Linkicons.css'
 import './components/Background.css'
-// import './components/About.css'
+import './components/About.css'
 function App() {
     const [menu, setMenu] = useState(menuList)
     // menu.forEach(item => console.log(item.item))
@@ -28,6 +28,7 @@ function App() {
             <Menu menu={menu} setMenu={setMenu} />
             <Linkicons />
             <Background />
+            <AboutUs />
             <Footer />
 
         </div>
