@@ -1,9 +1,15 @@
 .background_image {
-    position:absolute ;
+    position: absolute;
     top: 800px;
     left: -250px;
     transform: translate(-50%, -50%);
     z-index: -1;
     transform: rotate(-18deg);
     /* border: 3px solid #000000; */
+}
+
+@media (min-width: 600px) {
+    .background_image {
+        width: 80%;
+    }
 }

@@ -3,8 +3,8 @@
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    width: 300px;
-    height: 320px;
+    /* width: 300px; */
+    height: 300px;
     margin: 50px;
 }
 
@@ -16,8 +16,8 @@
     color: black;
     text-align: center;
     font-family: 'Mouse Memoirs', sans-serif;
-    width: 100px;
-    height: 100px;
+    width: 105px;
+    height: 105px;
     cursor: pointer;
     padding: 15px;
 }
@@ -50,6 +50,19 @@
     color: black;
     text-align: center;
     font-family: 'Mouse Memoirs', sans-serif;
+}
+
+@media (min-width: 400px) {
+    .icon{
+        width: 125px;
+        height: 125px;
+    }
+}
+@media (min-width: 600px) {
+    .icon{
+        width: 135px;
+        height: 135px;
+    }
 }
 
 @media (min-width: 800px) {
