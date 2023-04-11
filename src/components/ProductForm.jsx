@@ -15,12 +15,12 @@ const ProductForm = () => { // wrap the component in a function
 
     return (
         <div className="food-item">
-            <ul>
+            <ul className='ul-item-food'>
                 {food.map(food => ( // use parentheses instead of curly braces to return the JSX
-                    <li key={food.id}>
+                    <li className='li-item-food' key={food.id}>
                         <span className='food-name'>{food.name}</span>
                         <img className='food-image' src={food.image} alt={food.name} /> {/* add an image tag with the food image */}
-                        <button className='delete-food' onClick={() => handleDelete(food)}>Delete</button> {/* add an onClick handler to call the delete function */}
+                        <button className='delete-food' onClick={() => handleDelete(food)}>Remove Item</button> {/* add an onClick handler to call the delete function */}
                     </li>
                 ))}
             </ul>

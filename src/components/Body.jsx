@@ -1,10 +1,9 @@
-
 const Body = () =>{
     return(
         <div className="wrapper">
-            <div className="image">
+            <div className="body-iamge">
             <img className="body-pic" src="/public/images/Landing_backdrop.png" alt="" />
-            <div className="content">
+            <div className="tint">
             <a id="link" href="./Menu.jsx">KOLLA IN MENYN</a>
             </div>
             </div>
