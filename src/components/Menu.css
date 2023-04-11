@@ -3,10 +3,13 @@
 	border: 1px solid black;
 }
 
-.hidden {
-	display: none;
+.dish-container {
+	padding: 0.5em;
 }
 
-.dish-submenu.clicked {
-	display: none;
+.dish-expand {
+	/* border: none; */
+	padding: 0.5em 1em;
+	background-color: transparent;
+	cursor: pointer;
 }

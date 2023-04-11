@@ -1,6 +1,8 @@
 const menuList = [
 	{
-		taco: [
+		name: 'Tacos',
+		id: 1,
+		items: [
 			{
 				item: 'Hård Taco Kyckling',
 				id: 'hardTacoChicken',
@@ -46,7 +48,9 @@ const menuList = [
 		]
 	},
 	{
-		burritos: [
+		name: 'Burritos',
+		id: 2,
+		items: [
 			{
 				item: 'Burrito Kyckling',
 				id: 'burritoChicken',
@@ -71,7 +75,9 @@ const menuList = [
 		]
 	},
 	{
-		quesadillas: [
+		name: 'Quesadillas',
+		id: 3,
+		items: [
 			{
 				item: 'Quesadilla Kyckling',
 				id: 'quesadillaChicken',
@@ -96,7 +102,9 @@ const menuList = [
 		]
 	},
 	{
-		sides: [
+		name: 'Sides',
+		id: 4,
+		items: [
 			{
 				item: 'Nachos med Guacamole',
 				id: 'nachoGuac',
