@@ -2,43 +2,43 @@
     margin: 0;
     padding: 0;
     list-style-type: none;
+    
 }
 
 
 
 .nav-wrapper {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     align-content: center;
     flex-direction: column;
     position: absolute;
-    right: -200%;;
-    transition: all 0.5s ease;
+    right: -200%;
     color: white;
-    padding: 2em;
-    font-size: 22px;
-	background-color: #2C4906;
-}
-.nav-wrapper-active {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    flex-direction: column;
-    position: absolute;
-    right: 0%;;
-    transition: all 0.5s ease;
-    color: white;
-    padding: .5em;
     font-size: 22px;
 	background-color: #2C4906;
     z-index: 1;
+    
+}
+.nav-wrapper-active {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    position: absolute;
+    right: 0%;
+    color: white;
+    padding: .5em;
+    font-size: 24px;
+	background-color: #2C4906;
+    z-index: 1;
+
 }
 
 
 
-li{
+.header-nav li{
+    font-family: 'Mouse Memoirs'; 
     text-align: center;
     padding: .3em;
     
@@ -65,13 +65,97 @@ hr{
     margin: 1em 0;
     width: 45px;
     height: 45px;
+    cursor: pointer;
 }
 .logga-in-paragraf{
-    padding-bottom: 2em;
+    cursor: pointer;
+    padding-bottom: 1em;
     color: white;
     font-size: 22px;
 }
 
-.inloggning-img{
-    cursor: pointer;
+.not-clicked{
+    display: none;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.clicked{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    animation: fadeIn .3s ease-in;
+}
+
+
+.span-1{
+    text-decoration: underline;
+    text-decoration-color: #F35836 ;
+    text-decoration-thickness: 3px;
+}
+.span-2{
+    text-decoration: underline;
+    text-decoration-color: #0F7138 ;
+    text-decoration-thickness: 3px;
+}
+
+@media (min-width: 984px) {
+    .nav-wrapper-active, .nav-wrapper{ 
+        padding: 1em 0;
+        flex-direction: row;
+        height: 1vh;
+        flex-wrap: wrap; 
+        gap: 2em;
+
+    }
+    hr{
+        transform: rotate(90deg);
+        width: 10vw;
+        display: none;
+    }
+  .hamburgar-meny  {
+        display: none;
+        transition: all 2s;
+    }
+    .header-nav ul{
+        display: flex;
+        flex-direction: row;
+        gap: 2em;
+        font-size: 22px;
+        flex-wrap: wrap;
+    }
+    .header-nav nav{
+        position: absolute;
+        top: 1.5em;
+        right: 3em;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .inloggning-img{
+        margin: 1em 0;
+        width: 55px;
+        height: 45px;
+        cursor: pointer;
+        border-left: 4px solid white;
+        padding-left: 1em;
+    }
+    .clicked{
+        display: flex;
+        flex-direction: column;
+        gap: .2em;
+        font-size: 26px;
+        color: white;
+        position: absolute;
+        top: 2.4em;
+        right: -2.5em;
+        padding: 3em;
+        background-color: #2C4906;
+        transition: all .5s ease-in-out;
+        z-index: 1;
+    }
+    .clicked {
+        font-size: 26px;
+    }
 }
