@@ -29,10 +29,11 @@ const Menu = ({ menu, setMenu }) => {
 
 	// Måste lägga in egen state-variabel för varje li-element så att de inte påverkar varandra
 	const startMenu = menu.map(dish => {
+		console.log('bla');
 		const [click, setClick] = useState(false)
 		return (
-			< li key={dish.id} >
-				<button onClick={() => handleClick(menu, dish.id, click, setClick)}>
+			< li key={dish} >
+				<button onClick={() => handleClick(menu, dish, click, setClick)}>
 					<h2>{dish.item}</h2>
 				</button>
 				<ExpandedMenu dishObject={dish} click={click} />
@@ -65,6 +66,136 @@ const ExpandedMenu = ({ dishObject, click }) => {
 		)
 	}
 }
+
+
+// Sätt statevariabeln till id-numret på rätten. null från början. bara en dropdown kan vara öppen i taget.
+
+// let fillingList = []
+// let ingredientsList = []
+// let extraList = []
+
+// // Hittar rätten som är klickad på och sätter state-variabeln till true
+// const handleClick = (menu, dishId, show, setShow) => {
+// 	const targetDish = menu.find(dish => dishId == dish.id)
+// 	show == false ? setShow(true) : setShow(false)
+
+// 	fillingList = targetDish.filling
+// 	ingredientsList = targetDish.ingredients
+// 	extraList = targetDish.extra
+// }
+
+
+// const Menu = ({ menu, setMenu }) => {
+
+// 	// Måste lägga in egen state-variabel för varje li-element så att de inte påverkar varandra?
+// 	const startMenu = menu.map(dish => {
+// 		const [show, setShow] = useState(null)
+// 		return (
+// 			<>
+// 				< li key={dish.id} onClick={() => setShow(dish.id)} className={show === dish.id ? '' : 'open-list'}>
+// 					<h2>{dish.item}</h2>
+// 					<Dropdown dishObject={dish} show={show} />
+// 				</li >
+// 			</>
+// 		)
+// 	})
+
+
+// 	return (
+// 		<ul className="start-menu">
+// 			{startMenu}
+// 		</ul>
+// 	)
+// }
+
+// function Dropdown({ dishObject, show }) {
+// 	const [dropdown, setDropdown] = useState(false)
+// 	console.log('Inuti Dropdown, obj är: ' + dishObject.item);
+// 	const AddToCartButton = () => {
+// 		if (show == true) {
+// 			return <button key={dishObject.item}>Lägg till</button>
+// 		}
+// 	}
+// 	return (
+// 		<div>
+// 			<Category list={dishObject.filling} listName='Fyllning' dropdown={dropdown} setDropdown={setDropdown} show={show} />
+// 			<Category list={dishObject.ingredients} listName='Tillbehör' dropdown={dropdown} setDropdown={setDropdown} show={show} />
+// 			<Category list={dishObject.extra} listName='Extra' dropdown={dropdown} setDropdown={setDropdown} show={show} />
+// 			<AddToCartButton />
+// 		</div>
+// 	)
+// }
+
+// function Category({ list, listName, dropdown, setDropdown, show }) {
+// 	console.log('Inuti Category, listan är: ' + list);
+// 	if (show) {
+// 		return (
+// 			<>
+// 				<h4>{listName}</h4>
+// 				<ul className='dish-submenu'
+// 				// {dropdown ? 'dish-submenu clicked' : 'dish-submenu'} onClick={() => setDropdown(!dropdown)}
+// 				>
+// 					{list.map(item => {
+// 						return (
+// 							<li key={item.name} onClick={() => setDropdown(false)}>
+// 								{item.name}
+// 							</li>
+// 						)
+// 					})}
+// 				</ul >
+// 			</>
+// 		)
+// 	} else {
+// 		return null
+// 	}
+// }
+
+
+
+// const handleClick = (menu, dishId, show, setShow) => {
+// 	const targetDish = menu.find(dish => dishId == dish.id)
+// 	show ? setShow(null) : setShow(dishId)
+
+// 	fillingList = targetDish.filling
+// 	ingredientsList = targetDish.ingredients
+// 	extraList = targetDish.extra
+// }
+
+
+// const Menu = ({ menu, setMenu }) => {
+
+
+// 	// Måste lägga in egen state-variabel för varje li-element så att de inte påverkar varandra?
+// 	const startMenu = menu.map(dish => {
+// 		const [show, setShow] = useState(null)
+// 		const Drop = ({ dish, show }) => {
+// 			if (show == dish.id) {
+// 				return (
+// 					<Dropdown dishObject={dish} show={show} />
+// 				)
+// 			} else {
+// 				return null
+// 			}
+// 		}
+
+// 		return (
+// 			<>
+// 				< li key={dish.id}>
+// 					<h2 onClick={() => setShow(dish.id)} className={show !== dish.id ? 'menu-item' : 'menu-item open'}>{dish.item}</h2>
+// 					<Drop dishObject={dish} show={show} />
+// 				</li >
+// 			</>
+// 		)
+
+// 	})
+
+
+// 	return (
+// 		<ul className="start-menu">
+// 			{startMenu}
+// 		</ul>
+// 	)
+// }
 
 
 export default Menu

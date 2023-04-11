@@ -6,3 +6,7 @@
 .hidden {
 	display: none;
 }
+
+.dish-submenu.clicked {
+	display: none;
+}
