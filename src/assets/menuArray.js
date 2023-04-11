@@ -4,26 +4,26 @@ const menuList = [
 		id: 1,
 		items: [
 			{
-				item: 'Hård Taco Kyckling',
+				item: 'Hård Taco med Kyckling',
 				id: 'hardTacoChicken',
 				filling: [{ name: 'Kyckling', image: '' }, { name: 'Isbergssallad', image: '' }, { name: 'Tomat', image: '' }, { name: 'Ost', image: '' }, { name: 'Gräddfil', image: '' }],
 				price: 59,
 			},
 			{
-				item: 'Hård Taco Kött',
+				item: 'Hård Taco med Nötkött',
 				id: 'hardTacoMeat',
 				filling: [{ name: 'Nötkött', image: '' }, { name: 'Isbergssallad', image: '' }, { name: 'Tomat', image: '' }, { name: 'Ost', image: '' }, { name: 'Gräddfil', image: '' }],
 				price: 59,
 			},
 			{
-				item: 'Hård Taco Vegetarisk',
+				item: 'Hård Taco med Svarta Bönor',
 				id: 'hardTacoVeg',
 				filling: [{ name: 'Svarta bönor', image: '' }, { name: 'Isbergssallad', image: '' }, { name: 'Tomat', image: '' }, { name: 'Ost', image: '' }, { name: 'Gräddfil', image: '' }],
 				price: 59,
 			},
 
 			{
-				item: 'Mjuk Taco Kyckling',
+				item: 'Mjuk Taco med Kyckling',
 				id: 'softTacoChicken',
 				filling: [{ name: 'Kyckling', image: '' }, { name: 'Isbergssallad', image: '' }, { name: 'Tomat', image: '' }, { name: 'Ost', image: '' }, { name: 'Gräddfil', image: '' }],
 				price: 59,
@@ -31,7 +31,7 @@ const menuList = [
 			},
 
 			{
-				item: 'Mjuk Taco Kött',
+				item: 'Mjuk Taco med Nötkött',
 				id: 'softTacoMeat',
 				filling: [{ name: 'Nötkött', image: '' }, { name: 'Isbergssallad', image: '' }, { name: 'Tomat', image: '' }, { name: 'Ost', image: '' }, { name: 'Gräddfil', image: '' }],
 				price: 59,
@@ -39,7 +39,7 @@ const menuList = [
 			},
 
 			{
-				item: 'Mjuk Taco Vegetarisk',
+				item: 'Mjuk Taco med Svarta Bönor',
 				id: 'softTacoVeg',
 				filling: [{ name: 'Svarta bönor', image: '' }, { name: 'Isbergssallad', image: '' }, { name: 'Tomat', image: '' }, { name: 'Ost', image: '' }, { name: 'Gräddfil', image: '' }],
 				price: 59,
@@ -52,21 +52,21 @@ const menuList = [
 		id: 2,
 		items: [
 			{
-				item: 'Burrito Kyckling',
+				item: 'Burrito med Kyckling',
 				id: 'burritoChicken',
 				filling: [{ name: 'Kyckling', image: '' }, { name: 'Isbergssallad', image: '' }, { name: 'Tomat', image: '' }, { name: 'Ost', image: '' }, { name: 'Ris', image: '' }, { name: 'Svarta bönor', image: '' }],
 				price: 89,
 
 			},
 			{
-				item: 'Burrito Kött',
+				item: 'Burrito med Nötkött',
 				id: 'burritoMeat',
 				filling: [{ name: 'Nötkött', image: '' }, { name: 'Isbergssallad', image: '' }, { name: 'Tomat', image: '' }, { name: 'Ost', image: '' }, { name: 'Ris', image: '' }, { name: 'Svarta bönor', image: '' }],
 				price: 89,
 
 			},
 			{
-				item: 'Burrito Vegetarisk',
+				item: 'Burrito med Quorn',
 				id: 'burritoVeg',
 				filling: [{ name: 'Quorn', image: '' }, { name: 'Isbergssallad', image: '' }, { name: 'Tomat', image: '' }, { name: 'Ost', image: '' }, { name: 'Ris', image: '' }, { name: 'Svarta bönor', image: '' }],
 				price: 89,
@@ -79,21 +79,21 @@ const menuList = [
 		id: 3,
 		items: [
 			{
-				item: 'Quesadilla Kyckling',
+				item: 'Quesadilla med Kyckling',
 				id: 'quesadillaChicken',
 				filling: [{ name: 'Kyckling', image: '' }, { name: 'Ost', image: '' }, { name: 'Jalapeños', image: '' }],
 				price: 79,
 
 			},
 			{
-				item: 'Quesadilla Kött',
+				item: 'Quesadilla med Nötkött',
 				id: 'quesadillaMeat',
 				filling: [{ name: 'Nötkött', image: '' }, { name: 'Ost', image: '' }, { name: 'Jalapeños', image: '' }],
 				price: 79,
 
 			},
 			{
-				item: 'Quesadilla Vegetarisk',
+				item: 'Quesadilla med Svarta Bönor',
 				id: 'quesadillaVeg',
 				filling: [{ name: 'Svarta bönor', image: '' }, { name: 'Ost', image: '' }, { name: 'Jalapeños', image: '' }],
 				price: 79,
