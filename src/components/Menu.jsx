@@ -1,78 +1,98 @@
 import { useState } from 'react'
 
-function MenuItems(menu, list, dishIsOpen, setDishIsOpen) {
+function MenuItems({ list, setDishIsOpen }) {
     let jsxList = list.map((dish) => {
-        return <li key={dish.item}><button className='dish' onClick={() => HandleDishClick(menu, dish, dishIsOpen, setDishIsOpen)}><h3>{dish.item}</h3></button></li>
+        return <li key={dish.item}><button className='dish' onClick={() => handleDishClick(dish, setDishIsOpen)}><h3>{dish.item}</h3></button></li>
     })
     return jsxList
 }
 
-const HandleDishClick = (menu, dish, dishIsOpen, setDishIsOpen) => {
-    console.log(`${dish.item} kostar ${dish.price}:-`);
+const handleDishClick = (dish, setDishIsOpen) => {
     setDishIsOpen(dish.id)
-    console.log(dishIsOpen);
 }
 
-// const DishView = ({ menu, dish }) => {
-//     let targetDish = null
-//     menu.forEach(item => {
-//         console.log(item.name);
-//         targetDish = item.items.find(dish => {
-//             // item.name == 'Tacos'
-//             dish.id == dish
-//         }
-//         )
+const backButton = (setMenu, dishId, setDishIsOpen) => {
+    setDishIsOpen(null)
+    handleCategoryClick(dishId, setMenu)
+}
 
-//     })
-//     console.log('targetDish är: ' + targetDish);
+const Ingredients = ({ targetDish }) => {
+    let jsxList = targetDish.filling.map(filling => {
+        return (
+            <li key={filling.name}><h4>{filling.name}</h4></li>
+        )
+    })
+    return jsxList
+}
 
-//     let ingredients = dish.filling.forEach(filling => (
-//         <li><h4>{filling.name}</h4></li>
-//     ))
+const DishView = ({ menu, setMenu, dish, setDishIsOpen }) => {
 
-// return (
-//     <>
-//         <h3>{dish.item}</h3>
-//         <ul>{ingredients}</ul>
-//         <p>{dish.price}</p>
-//     </>
-// )
-// }
-
-const Menu = ({ menu, setMenu }) => {
-    const [dishIsOpen, setDishIsOpen] = useState(null)
-    const handleCategoryClick = (dishId) => {
-        setMenu((prevMenu) => {
-            return prevMenu.map((dish) => {
-                if (dish.id === dishId) {
-                    return { ...dish, expanded: !dish.expanded }
-                } else {
-                    return { ...dish, expanded: false }
-                }
-            })
-        })
+    let targetDish = undefined
+    for (let index = 0; targetDish == undefined; index++) {
+        targetDish = menu[index].items.find(item => item.id === dish);
     }
 
-    const menuItems = menu.map((dish) => {
+    return (
+        <>
+            <button onClick={() => backButton(setMenu, targetDish.id, setDishIsOpen)}>Tillbaka</button>
+            <h3>{targetDish.item}</h3>
+            <ul><Ingredients targetDish={targetDish} /></ul>
+            <p>{targetDish.price}</p>
+        </>
+    )
+}
+
+const handleCategoryClick = (dishId, setMenu) => {
+    setMenu((prevMenu) => {
+        return prevMenu.map((dish) => {
+            if (dish.id === dishId) {
+                return { ...dish, expanded: !dish.expanded }
+            } else {
+                return { ...dish, expanded: false }
+            }
+        })
+    })
+}
+
+function MenuExpand({ menu, setMenu, setDishIsOpen }) {
+    let menuItems = menu.map(dish => {
         return (
             <li className='dish-container' key={dish.name}>
-                <button className='dish-categories' onClick={() => handleCategoryClick(dish.id)}>
+                <button className='dish-categories' onClick={() => handleCategoryClick(dish.id, setMenu)}>
                     <h2>{dish.name}</h2>
                 </button>
                 {dish.expanded && (
                     <div>
-                        <ul>{MenuItems(menu, dish.items, dishIsOpen, setDishIsOpen)}
+                        <ul>
+                            <MenuItems list={dish.items} setDishIsOpen={setDishIsOpen} />
                         </ul>
                     </div>
                 )}
             </li>
         )
     })
-    // if (!dishIsOpen) {
-    return <ul className="start-menu">{menuItems}</ul>
-    // } else {
-    //     return < DishView menu={menu} dish={dishIsOpen} />
-    // }
+    return menuItems
 }
+
+const Menu = ({ menu, setMenu }) => {
+    const [dishIsOpen, setDishIsOpen] = useState(null)
+
+
+    if (dishIsOpen == null) {
+        return (
+            <ul className="start-menu">
+                <MenuExpand menu={menu} setMenu={setMenu} setDishIsOpen={setDishIsOpen} />
+            </ul>
+        )
+    } else {
+        return (
+            <div className='dish-view'>
+                < DishView menu={menu} setMenu={setMenu} dish={dishIsOpen} setDishIsOpen={setDishIsOpen} />
+            </div>
+        )
+    }
+}
+
+
 
 export default Menu
