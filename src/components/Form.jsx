@@ -1,17 +1,51 @@
+import { useState } from 'react'
+import { isValidFullName } from '../utils/validation';
+
 const FormCustomer = () => {
+    const[name, setName] = useState('')
+    const [nameIsDirty, setNameIsDirty] = useState(false)
+
+
+    const nameIsValid = isValidFullName(name)
+
+    const handleNameChange = e => {
+        setName(e.target.value)  
+        // setNameIsDirty(true)
+    } 
+
+    const handleSubmit = event => {
+        event.preventDefault();
+    }
+
+    // ✔️❌
+    
+
     return (
-        <div className="form-wrapper">
+        <form className="form-wrapper">
             <div className="form-inner">
 
             <h1>Beställning</h1>
 
-                
                     <div className="form-inputs">
+
                      <label htmlFor="name">Namn & Efternamn</label>
-                        <input id="name" name="name" type="text" />
+                     <div className='field'>
+                        <input id="name" name="name" type="text" 
+                        value={name} 
+                        onChange={handleNameChange}
+                        onBlur={() => setNameIsDirty(true)}
+                        /> 
+
+                        <span>{nameIsDirty ? (nameIsValid ? '✔️' : '❌') : ''}
+                        </span>
+
+                     </div>
 
                      <label htmlFor="tel">Telefonnummer</label>
+                     <div className='field'> 
                         <input id="tel" name="tel" type="tel" />
+                     </div>
+
                     </div>
 
               
@@ -36,9 +70,9 @@ const FormCustomer = () => {
                 <p>124 .00 kr</p>
             </div>
 
-            <button className="send-order">Skicka Beställning</button>
+            <button type="submit" onClick={handleSubmit} className="send-order">Skicka Beställning</button>
             </div>
-        </div>
+        </form>
     );
 };
 

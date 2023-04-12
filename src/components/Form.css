@@ -21,9 +21,9 @@ h1{
 }
 /* inputs börjar här */
 .form-inputs{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
 
 }
 
@@ -31,15 +31,19 @@ h1{
     font-size: 22px;
 
 }
-hr{
-    border-color: black;
+
+.field{
+    display: flex;
 }
-.form-inputs input{
+
+.field input{
+    flex-grow: 1;
     font-size: 18px;
     margin-bottom: 1em;
     background-color:#8ACE80 ;
     border: none;
 }
+
 .form-inputs input:focus{
     border: .5px solid black;
 
