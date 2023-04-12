@@ -20,12 +20,6 @@ h1{
     text-align: center;
 }
 /* inputs börjar här */
-.form-inputs{
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: center; */
-
-}
 
 .form-inputs label{
     font-size: 22px;
@@ -37,11 +31,12 @@ h1{
 }
 
 .field input{
-    flex-grow: 1;
+    flex-grow: 2;
     font-size: 18px;
-    margin-bottom: 1em;
+    margin-bottom: .3em;
     background-color:#8ACE80 ;
     border: none;
+    padding: 0 .9em;
 }
 
 .form-inputs input:focus{
@@ -97,11 +92,40 @@ label{
     background-color: #8ACE80;
     font-size: 24px;
     border: none;
-    padding: .5em 1em;
+    padding: .5em .8em;
 
 }
 
+.valid-name{
+    margin-left: .5em;
+}
 
+
+/* error meddelande börjar här */
+.hide-error, .hide-phone-error{
+    display: none;
+
+}
+
+.error-style{
+    border: 1px solid grey;
+    padding: .5em 1.2em;
+    background-color:#BE4B49 ;
+    margin-bottom: .5em;
+}
+
+.error-style li{
+    list-style: disc;
+    font-size: 16px;
+    color: white;
+    font-family:Arial, Helvetica, sans-serif ;
+    margin-bottom: .4em;
+}
+
+.show-phone-error, .show-error{
+    display: block;
+}
+/* error meddelande slutar här */
 
 
 
@@ -115,6 +139,7 @@ label{
         width: 50%;
         align-items: center;
         padding: 2em;
+        gap: 2em;
     }
     label  {
         font-size: 24px;
@@ -140,11 +165,17 @@ label{
     .send-order:hover {
         background-position: left bottom;
       }
+      .field input{
+        flex-grow: 10;
+    }
+      .form-inputs input{
 
-      input{
-        padding: .5em;
-        border-radius: 6px;
+        width: 400px;
       }
+
+      .error-style{
+        width: 250px;
+    }
 
 
 }

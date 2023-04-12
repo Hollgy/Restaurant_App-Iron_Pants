@@ -1,20 +1,40 @@
 import { useState } from 'react'
 import { isValidFullName } from '../utils/validation';
+import { isValidPhonenumber } from '../utils/validation';
 
 const FormCustomer = () => {
     const[name, setName] = useState('')
+    const[number, setNumber] = useState('')
     const [nameIsDirty, setNameIsDirty] = useState(false)
+    const [phoneIsDirty, setPhoneIsDirty] = useState(false)
+    
+    
 
 
-    const nameIsValid = isValidFullName(name)
+    let nameIsValid = isValidFullName(name)
+    let phoneNumberIsValid = isValidPhonenumber(number)
+
+
+   
 
     const handleNameChange = e => {
         setName(e.target.value)  
         // setNameIsDirty(true)
     } 
+    const handlePhoneChange = e => {
+        setNumber(e.target.value)  
+        const result = e.target.value.replace(/\D/g, '');
+        setNumber(result)
+    } 
 
     const handleSubmit = event => {
-        event.preventDefault();
+   
+        if (!nameIsValid || !phoneNumberIsValid) {
+                event.preventDefault();
+                return;
+              }
+
+        
     }
 
     // ✔️❌
@@ -30,21 +50,43 @@ const FormCustomer = () => {
 
                      <label htmlFor="name">Namn & Efternamn</label>
                      <div className='field'>
-                        <input id="name" name="name" type="text" 
+                        <input required id="name" name="name" type="text" 
                         value={name} 
                         onChange={handleNameChange}
                         onBlur={() => setNameIsDirty(true)}
                         /> 
 
-                        <span>{nameIsDirty ? (nameIsValid ? '✔️' : '❌') : ''}
+                        <span className='valid-name'>{nameIsDirty ? (nameIsValid ? '✔️' : '❌') : ''}
                         </span>
 
                      </div>
+                        <div className={ nameIsDirty ? (nameIsValid ? 'hide-error' : 'show-error error-style') : 'hide-error'}>
+                            <ul>
+                            <li>Kontrollera att Namn & Efternamn är korrekt i fyllt</li>
+                            <li>Kontrollera att det inte innehåller siffror i rutan</li>
+                            
+                                
+                            </ul>
+                        </div>
 
                      <label htmlFor="tel">Telefonnummer</label>
                      <div className='field'> 
-                        <input id="tel" name="tel" type="tel" />
+                        <input  required id="tel" name="tel" type="tel"  value={number}
+                        onChange={handlePhoneChange}
+                        onBlur={() => setPhoneIsDirty(true)}
+                        />
+                        <span className='valid-name'>{phoneIsDirty? (phoneNumberIsValid ? '✔️' : '❌') : ''}
+                        </span>
+
                      </div>
+                     <div className={  phoneIsDirty ? (phoneNumberIsValid ? 'hide-phone-error' : 'show-phone-error error-style') : 'hide-phone-error'}>
+                            <ul>
+                            <li>Kontrollera att Telefonnummer är korrekt i fyllt</li>
+                            <li>Kontrollera att det inte innehåller bokstäver i rutan</li>
+                            <li>Kontrollera att du har minst 10 siffror</li>
+                                
+                            </ul>
+                        </div>
 
                     </div>
 
@@ -53,7 +95,7 @@ const FormCustomer = () => {
                      
                         <div className="eat-here-div">
                         <label htmlFor="eat-here">Ät på plats</label>
-                         <input id="eat-here" type="radio" name="eat" />
+                         <input id="eat-here" type="radio" name="eat" required />
                         </div>
 
 
