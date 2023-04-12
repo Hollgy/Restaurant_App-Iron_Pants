@@ -6,7 +6,7 @@ export let data = [
 , url:'#'
 },
 {title: 'Om Oss' 
- , url:'./About.jsx'
+ , url:'#'
 }
 
 ]
