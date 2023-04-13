@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,22 +6,24 @@
 
 
 .header-logo {
-	padding: .5em;
-	background-color: #2C4906;
-    height: 10vh;
+    padding: .5em;
+    background-color: #2C4906;
+    height: 15vh;
     width: 100%;
 }
-.logo-div{
+
+.logo-div {
     display: flex;
     justify-content: center;
 }
-.logo{
-    width: 100px;
+
+.logo {
+    /* width: 100px; */
     height: 100px;
     z-index: 1;
 }
- 
-.hamburgar-meny{
+
+.hamburgar-meny {
     position: absolute;
     top: 1.5em;
     right: .5em;

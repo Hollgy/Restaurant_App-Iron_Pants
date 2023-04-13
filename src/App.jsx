@@ -30,12 +30,12 @@ function App() {
 
         <div className="App">
             <Header />
-            <Body />
+            {/* <Body /> */}
             <Menu menu={menu} setMenu={setMenu} />
-            <ProductForm />
-            <Linkicons />
-            <Background />
-            <AboutUs />
+            {/* <ProductForm /> */}
+            {/* <Linkicons /> */}
+            {/* <Background /> */}
+            {/* <AboutUs /> */}
             <Footer />
 
         </div>

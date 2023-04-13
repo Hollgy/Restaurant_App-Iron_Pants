@@ -2,7 +2,11 @@ import { useState } from 'react'
 
 function MenuItems({ list, setDishIsOpen }) {
     let jsxList = list.map((dish) => {
-        return <li key={dish.item}><button className='dish' onClick={() => handleDishClick(dish, setDishIsOpen)}><h3>{dish.item}</h3></button></li>
+        return <li key={dish.item}><button className='dish' onClick={() => handleDishClick(dish, setDishIsOpen)}>
+            <img className='dish-image-small' src={dish.image} alt={dish.item} />
+            <h3 className='dish-heading-start'>{dish.item}</h3>
+            <p className='price to-the-side'>{dish.price}:-</p>
+        </button></li>
     })
     return jsxList
 }
@@ -70,24 +74,36 @@ const handleCategoryClick = (dishId, setMenu) => {
 
 function MenuExpand({ menu, setMenu, setDishIsOpen }) {
     let menuItems = menu.map(dish => {
+
         return (
             <li className='dish-container' key={dish.name}>
                 <button className='dish-categories' onClick={() => handleCategoryClick(dish.id, setMenu)}>
-                    <img className='food-category-icon' src={dish.icon} alt={dish.name} />
-                    <h2>{dish.name}</h2>
-                </button>
-                {dish.expanded && (
-                    <div>
-                        <ul>
-                            <MenuItems list={dish.items} setDishIsOpen={setDishIsOpen} />
-                        </ul>
+                    <div className='category'>
+                        <img className='food-category-icon' src={dish.icon} alt={dish.name} />
+                        <h2 className='food-category-heading'>{dish.name}</h2>
                     </div>
-                )}
+                </button>
             </li>
         )
     })
     return menuItems
 }
+
+const ShowDishesInCategory = ({ menu, setDishIsOpen }) => {
+    let menuItems = menu.map(dish => {
+        if (dish.expanded) {
+            return (
+                <div>
+                    <ul className='dish-list'>
+                        <MenuItems list={dish.items} setDishIsOpen={setDishIsOpen} />
+                    </ul>
+                </div>
+            )
+        }
+    })
+    return menuItems
+}
+
 
 const Menu = ({ menu, setMenu }) => {
     const [dishIsOpen, setDishIsOpen] = useState(null)
@@ -95,9 +111,14 @@ const Menu = ({ menu, setMenu }) => {
 
     if (dishIsOpen == null) {
         return (
-            <ul className="start-menu">
-                <MenuExpand menu={menu} setMenu={setMenu} setDishIsOpen={setDishIsOpen} />
-            </ul>
+            <>
+                <ul className="start-menu">
+                    <MenuExpand menu={menu} setMenu={setMenu} setDishIsOpen={setDishIsOpen} />
+                </ul>
+                <>
+                    <ShowDishesInCategory menu={menu} setDishIsOpen={setDishIsOpen} />
+                </>
+            </>
         )
     } else {
         return (
