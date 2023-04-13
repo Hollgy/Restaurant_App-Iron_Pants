@@ -3,6 +3,16 @@
 	border: 1px solid black;
 }
 
+.back-button {
+	font-size: 1.2em;
+	border: none;
+	background-color: #de8383;
+	padding: 0.3em 0.8em;
+	border-radius: 0.5em;
+	margin: 0.5em;
+	box-shadow: 0.2em 0.2em 0.4em gray;
+}
+
 .dish-container {
 	padding: 0.5em;
 }
@@ -17,4 +27,87 @@
 .dish {
 	padding: 0.5em;
 	cursor: pointer
+}
+
+.dish-container {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.dish-image-container {
+	max-height: 40em;
+}
+
+.dish-image {
+	object-fit: cover;
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.dish-heading {
+	font-size: 1em;
+	text-align: center;
+	display: flex;
+	justify-content: space-between;
+	margin: 2em 1em;
+}
+
+.ingredient-list {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.ingredient {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.ingredient-image-container {
+	margin-right: 1em;
+}
+
+.ingredient-image {
+	border-radius: 50%;
+	/* object-fit: cover; */
+	max-height: 5em;
+}
+
+.price {
+	/* margin: 1.5em; */
+	font-size: 1.5em;
+}
+
+.add-to-cart-button {
+	max-width: fit-content;
+	padding: 0.3em 0.8em;
+	font-size: 1.2em;
+	border: none;
+	background-color: #69da8f;
+	border-radius: 0.5em;
+	margin: 3em 0;
+	box-shadow: 0.2em 0.2em 0.4em gray;
+	align-self: center;
+}
+
+
+@media screen and (min-width: 620px) {
+
+	.dish-heading {
+		font-size: 1.5em;
+	}
+
+	.ingredient-list {
+		flex-direction: row;
+	}
+
+	.ingredient {
+		flex-direction: column;
+	}
+
+	.ingredient-image-container {
+		margin-right: unset;
+	}
 }

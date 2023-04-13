@@ -19,7 +19,12 @@ const backButton = (setMenu, dishId, setDishIsOpen) => {
 const Ingredients = ({ targetDish }) => {
     let jsxList = targetDish.filling.map(filling => {
         return (
-            <li key={filling.name}><h4>{filling.name}</h4></li>
+            <li className='ingredient' key={filling.name}>
+                <div className='ingredient-image-container'>
+                    <img className='ingredient-image' src={filling.image} alt={filling.name} />
+                </div>
+                <h4>{filling.name}</h4>
+            </li>
         )
     })
     return jsxList
@@ -34,10 +39,19 @@ const DishView = ({ menu, setMenu, dish, setDishIsOpen }) => {
 
     return (
         <>
-            <button onClick={() => backButton(setMenu, targetDish.id, setDishIsOpen)}>Tillbaka</button>
-            <h3>{targetDish.item}</h3>
-            <ul><Ingredients targetDish={targetDish} /></ul>
-            <p>{targetDish.price}</p>
+            <button className='back-button' onClick={() => backButton(setMenu, targetDish.id, setDishIsOpen)}>Tillbaka</button>
+            <div className='dish-container'>
+                <div className='dish-image-container'>
+                    <img className='dish-image' src={targetDish.image} alt={targetDish.item} />
+                </div>
+                <div className='dish-heading'>
+                    <h3>{targetDish.item}</h3>
+                    <p className='price'>{targetDish.price}:-</p>
+                </div>
+                <ul className='ingredient-list'><Ingredients targetDish={targetDish} /></ul>
+
+                <button className='add-to-cart-button'>Lägg till</button>
+            </div>
         </>
     )
 }
