@@ -73,6 +73,7 @@ function MenuExpand({ menu, setMenu, setDishIsOpen }) {
         return (
             <li className='dish-container' key={dish.name}>
                 <button className='dish-categories' onClick={() => handleCategoryClick(dish.id, setMenu)}>
+                    <img className='food-category-icon' src={dish.icon} alt={dish.name} />
                     <h2>{dish.name}</h2>
                 </button>
                 {dish.expanded && (

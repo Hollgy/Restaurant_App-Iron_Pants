@@ -1,6 +1,24 @@
 .start-menu {
 	padding: 2em;
 	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.food-category-icon {
+	max-height: 10em;
+	max-width: fit-content;
+}
+
+
+.dish-categories {
+	border: none;
+	/* display: flex; */
+	padding: 0.5em 1em;
+	background-color: transparent;
+	cursor: pointer;
 }
 
 .back-button {
@@ -13,23 +31,13 @@
 	box-shadow: 0.2em 0.2em 0.4em gray;
 }
 
-.dish-container {
-	padding: 0.5em;
-}
-
-.dish-categories {
-	/* border: none; */
-	padding: 0.5em 1em;
-	background-color: transparent;
-	cursor: pointer;
-}
-
 .dish {
 	padding: 0.5em;
 	cursor: pointer
 }
 
 .dish-container {
+	padding: 0.5em;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
@@ -37,11 +45,12 @@
 
 .dish-image-container {
 	max-height: 40em;
+	width: 100%;
 }
 
 .dish-image {
 	object-fit: cover;
-	max-height: 100%;
+	min-height: 12em;
 	max-width: 100%;
 }
 
@@ -71,12 +80,10 @@
 
 .ingredient-image {
 	border-radius: 50%;
-	/* object-fit: cover; */
 	max-height: 5em;
 }
 
 .price {
-	/* margin: 1.5em; */
 	font-size: 1.5em;
 }
 
@@ -109,5 +116,13 @@
 
 	.ingredient-image-container {
 		margin-right: unset;
+	}
+}
+
+
+@media screen and (min-width: 850px) {
+	.start-menu {
+		flex-direction: row;
+		/* justify-content: space-around; */
 	}
 }

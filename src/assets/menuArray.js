@@ -4,6 +4,7 @@ const menuList = [
 	{
 		name: 'Tacos',
 		id: 1,
+		icon: '/public/images/taco-icon.png',
 		items: [
 			{
 				item: 'Hård Taco med Kycklingfärs',
@@ -58,6 +59,7 @@ const menuList = [
 	{
 		name: 'Burritos',
 		id: 2,
+		icon: '/public/images/burrito-icon.png',
 		items: [
 			{
 				item: 'Burrito med Kyckling',
@@ -88,6 +90,7 @@ const menuList = [
 	{
 		name: 'Quesadillas',
 		id: 3,
+		icon: '/public/images/quesadilla-icon.png',
 		items: [
 			{
 				item: 'Quesadilla med Kyckling',
@@ -118,6 +121,7 @@ const menuList = [
 	{
 		name: 'Sides',
 		id: 4,
+		icon: '/public/images/nachos-icon.png',
 		items: [
 			{
 				item: 'Nachos med Guacamole',
