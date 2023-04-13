@@ -57,5 +57,12 @@
         cursor: pointer;
         font-size: 26px;
     }
+    .inte-inloggad{
+        display: none;
+    }
+    .inloggad-displaynone{
+        display: none;
+    }
+  
 
   }
