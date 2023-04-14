@@ -134,7 +134,7 @@ const menuList = [
 			{
 				item: 'Nachos med Pico De Gallo',
 				id: 'nachoPico',
-				image: '/public/images/nachos-with-pico-de-gallo.jpg',
+				image: '/public/images/nachos-with-pico-de-gallo2.jpg',
 				filling: [{ name: 'Nachos', image: '/public/images/nachos.jpg' }, { name: 'Pico De Gallo', image: '/public/images/pico-de-gallo.jpg' }],
 				price: 25
 			},

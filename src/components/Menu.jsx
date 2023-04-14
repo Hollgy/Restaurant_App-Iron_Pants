@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 function MenuItems({ list, setDishIsOpen }) {
     let jsxList = list.map((dish) => {
-        return <li key={dish.item}><button className='dish' onClick={() => handleDishClick(dish, setDishIsOpen)}>
+        return <li key={dish.id}><button className='dish' onClick={() => handleDishClick(dish, setDishIsOpen)}>
             <img className='dish-image-small' src={dish.image} alt={dish.item} />
             <h3 className='dish-heading-start'>{dish.item}</h3>
             <p className='price to-the-side'>{dish.price}:-</p>
@@ -93,11 +93,9 @@ const ShowDishesInCategory = ({ menu, setDishIsOpen }) => {
     let menuItems = menu.map(dish => {
         if (dish.expanded) {
             return (
-                <div>
-                    <ul className='dish-list'>
-                        <MenuItems list={dish.items} setDishIsOpen={setDishIsOpen} />
-                    </ul>
-                </div>
+                <ul className='dish-list' key={dish.name}>
+                    <MenuItems list={dish.items} setDishIsOpen={setDishIsOpen} />
+                </ul>
             )
         }
     })

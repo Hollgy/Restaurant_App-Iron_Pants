@@ -1,6 +1,6 @@
 .start-menu {
 	/* padding: 2em; */
-	border: 1px solid black;
+	/* border: 1px solid black; */
 	display: flex;
 	/* flex-direction: column; */
 	justify-content: space-around;
@@ -13,12 +13,13 @@
 	/* flex-grow: 1; */
 }
 
+
 .food-category-heading {
 	font-size: 0.8em;
 }
 
-
 .dish-categories {
+	transition: all 0.2s ease-in-out;
 	border: none;
 	/* display: flex; */
 	padding: 0.5em 1em;
@@ -28,14 +29,16 @@
 	/* max-height: 10em; */
 }
 
+
+
 .category {
 	/* max-height: 100%; */
 	max-width: 100%;
 }
 
 .dish-image-small {
-	/* max-height: 10em; */
-	max-width: 7em;
+	height: 8em;
+	width: 10em;
 	grid-area: img;
 }
 
@@ -62,17 +65,30 @@
 	margin: 2em 0;
 }
 
-/* .dish-list li {} */
+.dish-list li {
+	justify-self: center;
+	width: 100%;
+}
 
 .dish {
+
+	/* width: 70%; */
 	border-radius: 1em;
+	border: none;
 	padding: 1em 1em;
 	cursor: pointer;
 	/* display: flex; */
 	display: grid;
-	grid-template-columns: 1fr 2fr 1fr;
-	grid-template-areas: 'img heading price';
+	/* grid-template-columns: 1fr 2fr 1fr; */
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-template-areas: 'img heading' 'img price';
 	width: 100%;
+	box-shadow: 0.2em 0.2em 0.6em gray;
+}
+
+.dish:hover {
+	background-color: rgb(212, 212, 212);
 }
 
 .dish-container {
@@ -99,6 +115,7 @@
 	display: flex;
 	justify-content: space-between;
 	margin: 2em 1em;
+	flex-wrap: wrap;
 }
 
 .ingredient-list {
@@ -156,7 +173,11 @@
 
 	.dish {
 		padding: 1em 3em;
+		/* grid-template-columns: 1fr 2fr 1fr; */
+		/* grid-template-rows: 1fr 1fr; */
+		/* grid-template-areas: 'img heading' 'img price'; */
 	}
+
 
 	.food-category-heading {
 		font-size: 1.5em;
@@ -168,6 +189,7 @@
 
 	.dish-heading {
 		font-size: 1.5em;
+		justify-content: space-around;
 	}
 
 	.ingredient-list {
@@ -188,6 +210,18 @@
 	.start-menu {
 		flex-direction: row;
 		align-items: flex-start;
-		/* justify-content: space-around; */
+	}
+
+	.dish-image-small {
+		height: 10em;
+		width: 15em;
+	}
+
+	.dish-list li {
+		width: 70%;
+	}
+
+	.dish-categories:hover {
+		transform: scale(0.9);
 	}
 }
