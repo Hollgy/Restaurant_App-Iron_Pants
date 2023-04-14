@@ -6,7 +6,7 @@ const ProductForm = React.memo(({ foodItems, handleDelete }) => {
         <div>
             <div className="food-item">
                 <div className='header-text'>
-                    <h3>Meny</h3>
+                    <h3>Skal</h3>
                 </div>
                 <ul className='ul-item-food'>
                     {foodItems.map((foodItem) => (
