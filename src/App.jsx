@@ -15,6 +15,7 @@ import AdditionalFood from './components/ProductSortiment'
 import food from './assets/Products'
 import foodRest from './assets/ProductSortiment'
 import './App.css'
+import './components/AdminMenu.css'
 import './components/Header.css'
 import './components/Footer.css'
 import './components/Body.css'
@@ -24,6 +25,8 @@ import './components/Linkicons.css'
 import './components/Background.css'
 import './components/about.css'
 import './components/Signin.css'
+import './components/ProductForm.css'
+import './components/form.css'
 
 function App() {
     const [menu, setMenu] = useState(menuList);
@@ -47,7 +50,7 @@ function App() {
             <Body />
             <Menu menu={menu} setMenu={setMenu} />
             <ProductForm foodItems={foodItems} handleDelete={handleDelete} />
-            <AdditionalFood foodItems={foodItems} handleAddition={handleAddition} />
+            {/* <AdditionalFood foodItems={foodItems} handleAddition={handleAddition} /> */}
             <Linkicons />
             <Background />
             <AboutUs />
