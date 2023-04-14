@@ -10,6 +10,7 @@ import Linkicons from './components/Linkicons.jsx'
 import Background from './components/Background.jsx'
 import ProductForm from './components/ProductForm.jsx'
 import AboutUs from './components/About.jsx'
+import FormCustomer from './components/Form.jsx'
 import AdditionalFood from './components/ProductSortiment'
 import food from './assets/Products'
 import foodRest from './assets/ProductSortiment'
@@ -23,8 +24,6 @@ import './components/Linkicons.css'
 import './components/Background.css'
 import './components/about.css'
 import './components/Signin.css'
-import './components/ProductForm.css'
-import './components/Background.css'
 
 function App() {
     const [menu, setMenu] = useState(menuList);
@@ -52,6 +51,7 @@ function App() {
             <Linkicons />
             <Background />
             <AboutUs />
+            <FormCustomer/>
             <Footer />
         </div>
     );
