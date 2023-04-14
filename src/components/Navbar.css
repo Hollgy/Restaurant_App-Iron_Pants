@@ -83,6 +83,7 @@ hr{
 .clicked{
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     animation: fadeIn .3s ease-in;
 }
@@ -148,14 +149,13 @@ hr{
         font-size: 26px;
         color: white;
         position: absolute;
-        top: 2.4em;
-        right: -2.5em;
+        top: 2.6em;
+        right: -3em;
         padding: 3em;
         background-color: #2C4906;
         transition: all .5s ease-in-out;
+        align-items:  center;
         z-index: 1;
     }
-    .clicked {
-        font-size: 26px;
-    }
+    
 }

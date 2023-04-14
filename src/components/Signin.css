@@ -36,6 +36,34 @@
     display: none;
 }
 
+.inte-inloggad{
+    display: none;
+}
+.inloggad-displaynone{
+    display: none;
+}
+
+.show-error{
+    border: 1px solid grey;
+    padding: .2em 1.2em;
+    background-color:#BE4B49 ;
+    text-align: center;
+    font-size: 20px;
+    width: 250px;
+    display: block;
+    
+}
+.dont-show-error{
+    display: none;
+}
+.show-error li{
+    list-style: disc;
+    font-size: 16px;
+    color: white;
+    font-family:Arial, Helvetica, sans-serif ;
+    margin-bottom: .4em;
+}
+.välkommen{text-align: center;}
 
 @media (min-width: 984px) {
     .logga-in-paragraf{
@@ -57,5 +85,34 @@
         cursor: pointer;
         font-size: 26px;
     }
+    .inte-inloggad{
+        display: none;
+    }
+    .inloggad-displaynone{
+        display: none;
+    }
+
+    .show-error{
+        border: 1px solid grey;
+        padding: .5em 1.2em;
+        background-color:#BE4B49 ;
+        text-align: center;
+        font-size: 20px;
+        width: 250px;
+        display: block;
+        
+    }
+    .dont-show-error{
+        display: none;
+    }
+    .show-error li{
+        list-style: disc;
+        font-size: 16px;
+        color: white;
+        font-family:Arial, Helvetica, sans-serif ;
+        margin-bottom: .4em;
+    }
+    
+  
 
   }
