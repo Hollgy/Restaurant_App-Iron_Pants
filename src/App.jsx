@@ -49,7 +49,7 @@ function App() {
             <Header />
             <Body />
             <Menu menu={menu} setMenu={setMenu} />
-            <ProductForm foodItems={foodItems} handleDelete={handleDelete} />
+            {/* <ProductForm foodItems={foodItems} handleDelete={handleDelete} /> */}
             {/* <AdditionalFood foodItems={foodItems} handleAddition={handleAddition} /> */}
             <Linkicons />
             <Background />
