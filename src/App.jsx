@@ -2,18 +2,14 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 import menuList from './assets/menuArray'
-import food from './assets/Products'
-import AdditionalFood from './components/ProductSortiment'
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
 import Body from './components/Body.jsx'
 import Menu from './components/Menu.jsx'
 import Linkicons from './components/Linkicons.jsx'
 import Background from './components/Background.jsx'
-import ProductForm from './components/ProductForm.jsx'
 import AboutUs from './components/About.jsx'
 import FormCustomer from './components/Form.jsx'
-import foodRest from './assets/ProductSortiment'
 import './App.css'
 import './components/AdminMenu.css'
 import './components/Header.css'
@@ -32,25 +28,15 @@ function App() {
     const [menu, setMenu] = useState(menuList);
     const [foodItems, setFoodItems] = useState([]);
 
-    useEffect(() => {
-        setFoodItems([...food, ...foodRest]);
-    }, []);
-
-    const handleAddition = (foodItem) => {
-        setFoodItems([...foodItems, foodItem]);
-    };
-
-    const handleDelete = (foodItem) => {
-        setFoodItems(foodItems.filter((item) => item.id !== foodItem.id));
-    };
+    // useEffect(() => {
+    //     setFoodItems([...food, ...foodRest]);
+    // }, []);
 
     return (
         <div className="App">
             <Header />
             <Body />
             <Menu menu={menu} setMenu={setMenu} />
-            <ProductForm foodItems={foodItems} handleDelete={handleDelete} />
-            {/* <AdditionalFood foodItems={foodItems} handleAddition={handleAddition} /> */}
             <Linkicons />
             <Background />
             <AboutUs />

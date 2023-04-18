@@ -3,37 +3,27 @@ import { useState } from 'react'
 import { useRecoilState } from "recoil";
 import { loginState } from '../utils/login'
 import { overlayState } from "../utils/overlay";
-import IngredientBoxes from './AdminMenu';
+import { dishState } from "../utils/dishtoedit";
+import Editform from './AdminMenu';
 
 
 function MenuItems({ list, setDishIsOpen, menu, setMenu }) {
     const [loggedIn] = useRecoilState(loginState)
-    // const [overlay, setOverlay] = useRecoilState(overlayState)
-    const [dishToEdit, setDishToEdit] = useState(null)
+    const [overlay, setOverlay] = useRecoilState(overlayState)
+    const [dishToEdit, setDishToEdit] = useRecoilState(dishState)
 
 
-    const toggleClicked = () => {
-        setOverlay(overlay === 'closed' ? 'open' : 'closed')
-        console.log(overlay);
-    }
+    // const toggleClicked = () => {
+    //     setOverlay(overlay === 'closed' ? 'open' : 'closed')
+    //     console.log(overlay);
+    // }
 
     const handleEdit = ({ dish, dishToEdit, setDishToEdit }) => {
-        console.log('halloj');
-        setDishToEdit(dish.id)
-        console.log('hej igen');
 
-        return (
-            <div>
-                <p>Jag är dum</p>
-                <form action="#">
-                    <label htmlFor={dish.item}>Namn på rätt:</label>
-                    <input type="text" id={dish.item} />
-                    <label htmlFor={dish.price} >Pris:</label>
-                    <input type="text" id={dish.price} />
-                    <IngredientBoxes />
-                </form>
-            </div>
-        )
+        setDishToEdit(dish.id)
+        setOverlay(true)
+        console.log(overlay);
+
 
     }
 
@@ -178,9 +168,16 @@ const ShowDishesInCategory = ({ menu, setDishIsOpen, setMenu }) => {
 
 const Menu = ({ menu, setMenu }) => {
     const [dishIsOpen, setDishIsOpen] = useState(null)
+    const [overlay, setOverlay] = useRecoilState(overlayState)
+    const [dishToEdit, setDishToEdit] = useRecoilState(dishState)
 
 
-    if (dishIsOpen == null) {
+    if (dishIsOpen == null && overlay == true) {
+        return (
+            <Editform dish={dishState} />
+        )
+
+    } else if (dishIsOpen == null) {
         return (
             <>
                 <ul className="start-menu">
@@ -191,14 +188,19 @@ const Menu = ({ menu, setMenu }) => {
                 </>
             </>
         )
-    } else {
+
+    }
+    else {
         return (
             <div className='dish-view'>
                 < DishView menu={menu} setMenu={setMenu} dish={dishIsOpen} setDishIsOpen={setDishIsOpen} />
             </div>
         )
     }
+
+
 }
+
 
 
 
