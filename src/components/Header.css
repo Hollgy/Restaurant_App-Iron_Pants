@@ -5,26 +5,26 @@
 }
 
 
-.header-logo {
-    padding: .5em;
+.header {
+    padding: 0.5em;
     background-color: #2C4906;
-    height: 10vh;
+    height: 8%;
     width: 100%;
 }
 
-.logo-div {
+.header-container {
     display: flex;
     justify-content: center;
 }
 
 .logo {
     /* width: 100px; */
-    height: 100px;
-    z-index: 1;
+    height: 80px;
+    /* z-index: 1; */
 }
 
-.hamburgar-meny {
+.hamburger-menu {
     position: absolute;
     top: 1.5em;
-    right: .5em;
+    right: 1.5em;
 }

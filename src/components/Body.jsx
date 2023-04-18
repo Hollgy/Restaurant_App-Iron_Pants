@@ -1,7 +1,7 @@
 const Body = () =>{
     return(
         <div className="wrapper">
-            <div className="body-iamge">
+            <div className="body-image">
             <img className="body-pic" src="/public/images/Landing_backdrop.png" alt="" />
             <div className="tint">
             <a id="link" href="./Menu.jsx">KOLLA IN MENYN</a>

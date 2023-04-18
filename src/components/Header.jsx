@@ -9,13 +9,13 @@ const Header = () => {
     const [isOpen, setOpen] = useState(false)
     return (
         <header>
-            <div className="header-logo">
+            <div className="header">
 
-                <div className="hamburgar-meny">
+                <div className="hamburger-menu">
                     <Hamburger toggled={isOpen} toggle={setOpen} color="white" />
                 </div>
 
-                <div className="logo-div">
+                <div className="header-container">
                     <img
                         className="logo"
                         src="/public/images/LOGO.png"
