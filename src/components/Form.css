@@ -95,7 +95,7 @@ label{
     gap: 1em;
 }
 .item-li{
-    border: 5px solid #8ACE80  ;
+    border: 3px solid #8ACE80 ;
     margin-bottom: .5em;
     padding: 1em;
 }
@@ -107,6 +107,7 @@ label{
     font-size: 30px;
     background-color: white;
     cursor: pointer;
+    align-self: center;
 }
 
 .send-order{

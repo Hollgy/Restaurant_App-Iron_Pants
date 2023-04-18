@@ -14,10 +14,14 @@ function CartList() {
       setPrice(totalPrice);
     }, [cart]);
 
-    const removeItem = (itemId, itemPrice) => {
-        const updatedCart = cart.filter((item) => item.id !== itemId);
-        setCart(updatedCart);
-        setPrice(price - parseFloat(itemPrice));
+    const removeItem = (itemName, itemPrice) => {
+        const index = cart.findIndex((item) => item.item === itemName);
+        if (index !== -1) {
+          const updatedCart = [...cart];
+          updatedCart.splice(index, 1);
+          setCart(updatedCart);
+          setPrice(price - parseFloat(itemPrice));
+        }
       };
     
     const itemList = cart.map((item) => (
@@ -25,7 +29,7 @@ function CartList() {
             <li className="item-li" key={item.id}>
               <p className="item-p">{item.item}</p>
             </li>
-              <p className="ta-bort" onClick={() => removeItem(item.id, item.price)}>🗑️</p>
+              <p className="ta-bort" onClick={() => removeItem(item.item, item.price)}>🗑️</p>
             
         </div>
     ));
