@@ -13,11 +13,21 @@ function CartList() {
       const totalPrice = cart.reduce((acc, item) => acc + parseFloat(item.price), 0);
       setPrice(totalPrice);
     }, [cart]);
+
+    const removeItem = (itemId, itemPrice) => {
+        const updatedCart = cart.filter((item) => item.id !== itemId);
+        setCart(updatedCart);
+        setPrice(price - parseFloat(itemPrice));
+      };
     
     const itemList = cart.map((item) => (
-      <li key={item.id}>
-        <p>{item.item}</p>
-      </li>
+        <div className="item-div">
+            <li className="item-li" key={item.id}>
+              <p className="item-p">{item.item}</p>
+            </li>
+              <p className="ta-bort" onClick={() => removeItem(item.id, item.price)}>🗑️</p>
+            
+        </div>
     ));
     
     return (
