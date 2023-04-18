@@ -1,3 +1,7 @@
+body{
+    background-color: #F2F7F0;
+}
+
 .start-menu {
 	/* padding: 2em; */
 	/* border: 1px solid black; */
@@ -5,6 +9,8 @@
 	/* flex-direction: column; */
 	justify-content: space-around;
 	align-items: center;
+    height: 100vh;
+    
 }
 
 .food-category-icon {
