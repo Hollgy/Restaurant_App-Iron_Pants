@@ -1,5 +1,5 @@
 .wrapper {
-    width: 100%;
+    width: 100vw;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -8,14 +8,14 @@
 
 .image {
     /* margin-bottom: 100px; */
-    width: 100%;
-    position: relative;
-    top: .010em;
+    /* width: 100%; */
+    /* position: relative; */
+    /* top: .010em; */
 }
 
-.image img {
+.body-pic {
     height: 75vh;
-    width: 100%;
+    width: 100vw;
     display: block;
     margin: auto;
 }
@@ -24,9 +24,9 @@
     width: 100%;
     display: block;
     margin: auto;
-    width: 100%;
-    height: 100%;
-    top: 0;
+    width: 100vw;
+    height: 75vh;
+    top: 10vh;
     left: 0;
     position: absolute;
     background: rgba(67, 65, 65, 0.6);

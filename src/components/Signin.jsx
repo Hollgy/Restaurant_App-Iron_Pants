@@ -1,14 +1,16 @@
 import React, { useState } from "react";
+import { useRecoilState } from "recoil";
+import { loginState } from "../utils/login";
 
 const LoggaInInput = () => {
     const [clicked, setClicked] = useState("not-clicked");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [loggedIn, setLoggedIn] = useState(false);
+    const [loggedIn, setLoggedIn] = useRecoilState(loginState)
     const [showError, setShowError] = useState('dont-show-error');
 
 
-   
+
 
 
     const toggleLoggin = () => {
@@ -51,7 +53,7 @@ const LoggaInInput = () => {
                         alt="Logotype"
                     />
                     <p onClick={toggleLoggin} className="logga-in-paragraf">
-                       
+
                         <span className="span-1"> Personal inlo</span>gg
                         <span className="span-2">nin</span>g
                     </p>
@@ -59,42 +61,42 @@ const LoggaInInput = () => {
 
                 <div className={clicked}>
                     <p className="logga-in-paragraf-desktop">
-                        
+
                         <span className="span-1"> Personal inlo</span>gg
                         <span className="span-2">nin</span>g
                     </p>
 
                     <div className="input-wrapper">
-                    <label htmlFor="anställningsnummer">
-                        Användarnamn
-                    </label>
-                    <div>
-                    <input
-                        id="anställningsnummer"
-                        type="text"
-                        value={username}
-                        onChange={handleUsernameChange}
-                    />
-                                        
-                    </div>
+                        <label htmlFor="anställningsnummer">
+                            Användarnamn
+                        </label>
+                        <div>
+                            <input
+                                id="anställningsnummer"
+                                type="text"
+                                value={username}
+                                onChange={handleUsernameChange}
+                            />
 
-                    
-                    <label htmlFor="lösenord">Lösenord</label>
-                    <div>
-                    <input
-                        id="lösenord"
-                        type="password"
-                        value={password}
-                        onChange={handlePasswordChange}
-                    />
-    
+                        </div>
+
+
+                        <label htmlFor="lösenord">Lösenord</label>
+                        <div>
+                            <input
+                                id="lösenord"
+                                type="password"
+                                value={password}
+                                onChange={handlePasswordChange}
+                            />
+
                         </div>
                     </div>
                     <div className={showError}><ul>
-                    <li>Kontrollera att du angivit rätt Användarnamn & lösenord</li>
-                        </ul>  
-                        </div>
-                    
+                        <li>Kontrollera att du angivit rätt Användarnamn & lösenord</li>
+                    </ul>
+                    </div>
+
 
 
                     <button onClick={handleLogin} className="logga-in-btn">

@@ -5,11 +5,12 @@
     transform: translate(-50%, -50%);
     z-index: -1;
     transform: rotate(-18deg);
+    max-width: 80%;
     /* border: 3px solid #000000; */
 }
 
 @media (min-width: 600px) {
     .background_image {
-        width: 80%;
+        max-width: 80%;
     }
 }

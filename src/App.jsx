@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 import menuList from './assets/menuArray'
 import Header from './components/Header.jsx'
@@ -7,10 +8,10 @@ import Body from './components/Body.jsx'
 import Menu from './components/Menu.jsx'
 import Linkicons from './components/Linkicons.jsx'
 import Background from './components/Background.jsx'
-import ProductForm from './components/ProductForm.jsx'
 import AboutUs from './components/About.jsx'
 import FormCustomer from './components/Form.jsx'
 import './App.css'
+import './components/AdminMenu.css'
 import './components/Header.css'
 import './components/Footer.css'
 import './components/Body.css'
@@ -20,29 +21,29 @@ import './components/Linkicons.css'
 import './components/Background.css'
 import './components/about.css'
 import './components/Signin.css'
-import './components/Form.css'
+import './components/ProductForm.css'
+import './components/form.css'
 
 function App() {
-    const [menu, setMenu] = useState(menuList)
-    // menu.forEach(item => console.log(item.item))
-    const [Products, setProducts] = useState([])
-    const addProduct = Product => setProducts([...Products, Product])
+    const [menu, setMenu] = useState(menuList);
+    const [foodItems, setFoodItems] = useState([]);
+
+    // useEffect(() => {
+    //     setFoodItems([...food, ...foodRest]);
+    // }, []);
 
     return (
-
         <div className="App">
             <Header />
             <Body />
             <Menu menu={menu} setMenu={setMenu} />
-            <ProductForm />
             <Linkicons />
             <Background />
             <AboutUs />
             <FormCustomer/>
             <Footer />
-
         </div>
-    )
+    );
 }
 
-export default App
+export default App;

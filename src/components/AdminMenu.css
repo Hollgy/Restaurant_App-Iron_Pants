@@ -1,0 +1,11 @@
+.closed{
+    display: none;
+}
+
+.open{
+    display: block;
+}
+
+form {
+    text-align: center;
+}
