@@ -6,6 +6,7 @@ import { useState } from "react";
 import menuList from '../assets/menuArray'
 import { loginState } from '../utils/login'
 import { renderStatee } from "../utils/conrend";
+import { menuState } from "../utils/menu";
 
 
 // För varje ingrediens skapa en label + checkbox
@@ -16,9 +17,10 @@ const fillingList = []
 function Editform({ setMenu }) {
     const [filling, setFilling] = useRecoilState(fillingStatee)
     const [overlay, setOverlay] = useRecoilState(overlayState)
-    const [categoryList, setCategoryList] = useRecoilState(addToList)
+    const [categoryID, setCategoryID] = useRecoilState(addToList)
     const [list, setList] = useState([]);
     const [render, setRenderState] = useRecoilState(renderStatee)
+    const [menus, setMenus] = useRecoilState(menuState)
     // const [newDish, setNewDish] = useState({});
 
 
@@ -30,11 +32,27 @@ function Editform({ setMenu }) {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log(categoryList);
+        // console.log(categoryID);
+        // Leta i menyn efter objektet vars id matchar category-variabeln och lägg till newDish i objektets items-array
         newDish.filling = fillingList
-        let copy = [...categoryList, newDish]
-        setCategoryList(copy)
-        setRenderState('menu')
+
+        // const updatedMenu = () => {
+
+        const newMenu = menus.map(category => {
+            console.log('första', category.id);
+            console.log( 'andra', categoryID);
+            if (category.id == categoryID) {
+                category.items.push(newDish)
+                console.log('orginal listan', category.items);
+            }
+        })
+        //     return newMenu
+        // }
+        // const targetCategory = menu.find(category => category.id == categoryID)
+        // let copy = [...categoryList, newDish]
+        setMenus(newMenu)
+        // console.log('nya listan', newMenu);
+        setOverlay(false)
     }
 
 

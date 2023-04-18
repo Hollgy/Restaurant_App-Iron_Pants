@@ -22,7 +22,7 @@ function MenuItems({ list, setDishIsOpen, menu, setMenu }) {
     const handleEdit = ({ dish, dishToEdit, setDishToEdit }) => {
         setDishToEdit(dish)
         setOverlay(true)
-        console.log(overlay);
+        // console.log(overlay);
     }
 
 
@@ -122,14 +122,15 @@ const DishView = ({ menu, setMenu, dish, setDishIsOpen }) => {
 
 
 function MenuExpand({ menu, setMenu, setDishIsOpen }) {
-    const [categorylist, setCategoryList] = useRecoilState(addToList)
+   
 
     const handleCategoryClick = (dishId, setMenu) => {
         setMenu((prevMenu) => {
             return prevMenu.map((dish) => {
                 if (dish.id === dishId) {
+                    // setCategoryID(dishId)
                     // sätt en category-state-variable till dish
-                    setCategoryList(dish)
+                    // console.log('dishId: ' + dish.id);
                     return { ...dish, expanded: !dish.expanded }
                 } else {
                     return { ...dish, expanded: false }
@@ -155,17 +156,21 @@ function MenuExpand({ menu, setMenu, setDishIsOpen }) {
 }
 
 const ShowDishesInCategory = ({ menu, setDishIsOpen, setMenu }) => {
+    const [categoryID, setCategoryID] = useRecoilState(addToList)
     const [overlay, setOverlay] = useRecoilState(overlayState)
     const [list, setList] = useRecoilState(addToList)
     const [loggedIn] = useRecoilState(loginState)
-    const addDishInMenu = (arr) => {
+    const addDishInMenu = (arr, dishID) => {
         setOverlay(true)
         setList(arr)
+        setCategoryID(dishID)
+        
         // <Editform dish={dish} setMenu={setMenu}/>
     }
-    console.log(list);
+    // console.log(list);
     let menuItems = menu.map(dish => {
         if (dish.expanded) {
+            console.log( 'senaste', dish.id);
             return (
                 <>
                     <ul className='dish-list' key={dish.name}>
@@ -173,7 +178,7 @@ const ShowDishesInCategory = ({ menu, setDishIsOpen, setMenu }) => {
                     </ul>
                     {loggedIn ?
                         <div className='lägg-till-div'>
-                            <button className='add-new-dish-button ny-rätt' onClick={() => addDishInMenu(dish.items)}>Lägg till ny rätt</button>
+                            <button className='add-new-dish-button ny-rätt' onClick={() => addDishInMenu(dish.items, dish.id)}>Lägg till ny rätt</button>
 
                         </div> : null}
                 </>

@@ -2,7 +2,7 @@ import { atom } from "recoil";
 
 const addToList = atom({
     key: 'addToList',
-    default: []
+    default: null
 })
 
 export { addToList }
