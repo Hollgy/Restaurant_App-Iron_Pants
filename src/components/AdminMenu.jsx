@@ -48,20 +48,13 @@ const IngredientBoxes = ({ dish }) => {
     //      // true if any checkbox should be checked, false otherwise
     // };
 
-    // Om element finns i ingsInDish. då ska defaultChecked vara true.
+    // elementet finns i ingsInDish. ska defaultChecked vara true.
 
-    const HandleCheckBoxChange = (element) => {
-        console.log(element);
-        let defaultChecked = false
-        if (ingsInDish.includes(element)) {
-            defaultChecked = true
-        }
+    const HandleCheckBoxChange = ({element}) => {
 
         return (
-            <input className="checkbox" type="checkbox" id={element.name} defaultChecked={defaultChecked} />
+            <input className="checkbox" type="checkbox" id={element.name} defaultChecked={ingsInDish.includes(element) ? true : false} />
         )
-        // const defaultChecked = updatedIngs.some(val => val);
-        // true if any checkbox should be checked, false otherwise
     };
 
 
