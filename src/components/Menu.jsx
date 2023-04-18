@@ -174,7 +174,7 @@ const Menu = ({ menu, setMenu }) => {
 
     if (dishIsOpen == null && overlay == true) {
         return (
-            <Editform dish={dishState} />
+            <Editform dish={dishToEdit} />
         )
 
     } else if (dishIsOpen == null) {
