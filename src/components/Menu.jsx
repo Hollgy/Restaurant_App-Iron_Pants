@@ -4,6 +4,7 @@ import { useRecoilState } from "recoil";
 import { loginState } from '../utils/login'
 import { overlayState } from "../utils/overlay";
 import { dishState } from "../utils/dishtoedit";
+import { addToCartState } from "../utils/Addtocart";
 import Editform from './AdminMenu';
 
 
@@ -11,13 +12,10 @@ function MenuItems({ list, setDishIsOpen, menu, setMenu }) {
     const [loggedIn] = useRecoilState(loginState)
     const [overlay, setOverlay] = useRecoilState(overlayState)
     const [dishToEdit, setDishToEdit] = useRecoilState(dishState)
+    
 
 
-    // const toggleClicked = () => {
-    //     setOverlay(overlay === 'closed' ? 'open' : 'closed')
-    //     console.log(overlay);
-    // }
-
+ 
     const handleEdit = ({ dish, dishToEdit, setDishToEdit }) => {
 
         setDishToEdit(dish.id)
@@ -87,19 +85,25 @@ const Ingredients = ({ targetDish }) => {
     return jsxList
 }
 
-const DishView = ({ menu, setMenu, dish, setDishIsOpen }) => {
+const DishView = ({ menu, setMenu, dish, setDishIsOpen, }) => {
 
     const [loggedIn] = useRecoilState(loginState)
+    const [cart, setToCart] = useRecoilState(addToCartState);
     let targetDish = undefined
     for (let index = 0; targetDish == undefined; index++) {
         targetDish = menu[index].items.find(item => item.id === dish);
     }
 
-    const Button = () => {
 
+    const onAddToCartClick = (targetDish) =>{
+        let updatedCart = [...cart, targetDish]
+        setToCart(updatedCart) 
+    }
+
+    const Button = () => {
         if (!loggedIn) {
             return (
-                <button className='add-to-cart-button'>Lägg till</button>
+                <button onClick={() => onAddToCartClick(targetDish)} className='add-to-cart-button'>Lägg till</button>
             )
         }
     }
