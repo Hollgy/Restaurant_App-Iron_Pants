@@ -41,13 +41,14 @@
     font-family: 'Mouse Memoirs'; 
     text-align: center;
     padding: .3em;
-    
 }
 
-a {
-    list-style-type: none;
-    text-decoration: none;
+.nav-buttons{
+    font-family: 'Mouse Memoirs'; 
+    border: none;
+    background-color: transparent;
     color: white;
+    font-size: 24px;
 }
 
 hr{

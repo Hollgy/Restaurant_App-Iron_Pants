@@ -29,6 +29,10 @@
 	/* max-height: 10em; */
 }
 
+.lägg-till-div{
+	display: flex;
+	justify-content: center;
+}
 
 
 .category {
@@ -150,7 +154,7 @@
 	grid-area: price;
 }
 
-.add-to-cart-button {
+.add-to-cart-button,.add-new-dish-button {
 	max-width: fit-content;
 	padding: 0.3em 0.8em;
 	font-size: 1.2em;
@@ -162,6 +166,7 @@
 	align-self: center;
     cursor: pointer;
 }
+
 
 
 @media screen and (min-width: 620px) {

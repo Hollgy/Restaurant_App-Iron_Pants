@@ -1,12 +1,15 @@
 export let data = [
-{   title: 'Meny' , 
-    url:'#'
-},
-{title: 'Min Order' 
-, url:'#'
-},
-{title: 'Om Oss' 
- , url:'#'
-},
-]
+    {
+        title: 'Meny',
+        url: 'menu'
+    },
+    {
+        title: 'Min Order'
+        , url: 'order'
+    },
+    {
+        title: 'Om Oss'
+        , url: 'about'
+    }
 
+]

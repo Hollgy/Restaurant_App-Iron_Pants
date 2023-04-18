@@ -73,7 +73,7 @@ const menuList = [
 				item: 'Burrito med Nötkött',
 				id: 'burritoMeat',
 				image: '/public/images/meat-burrito.jpg',
-				filling: [{ name: 'Nötkött', image: '/public/images/seasoned-beef.png' }, { name: 'Smält Ost', image: '/public/images/melted-cheese.png' }, { name: 'Nachochips', image: '/public/images/nachos.jpg' }],
+				filling: [{ name: 'Nötkött', image: '/public/images/seasoned-beef.png' }, { name: 'Smält Ost', image: '/public/images/melted-cheese.png' }, { name: 'Nachos', image: '/public/images/nachos.jpg' }],
 				price: 89,
 
 			},

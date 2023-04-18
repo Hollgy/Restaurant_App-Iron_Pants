@@ -9,3 +9,13 @@
 form {
     text-align: center;
 }
+
+.save-button{
+    font-size: 125%;
+    background-color: #2C4906;
+    color: white;
+    border: #2C4906 1px solid;
+    padding: 0.2em;
+    border-radius: 0.2em;
+    cursor: pointer;
+}

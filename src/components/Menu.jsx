@@ -5,6 +5,7 @@ import { loginState } from '../utils/login'
 import { overlayState } from "../utils/overlay";
 import { dishState } from "../utils/dishtoedit";
 import { addToCartState } from "../utils/Addtocart";
+import { addToList } from "../utils/addtolist";
 import Editform from './AdminMenu';
 
 
@@ -17,12 +18,9 @@ function MenuItems({ list, setDishIsOpen, menu, setMenu }) {
 
  
     const handleEdit = ({ dish, dishToEdit, setDishToEdit }) => {
-
-        setDishToEdit(dish.id)
+        setDishToEdit(dish)
         setOverlay(true)
-        console.log(overlay);
-
-
+        // console.log(overlay);
     }
 
 
@@ -43,7 +41,6 @@ function MenuItems({ list, setDishIsOpen, menu, setMenu }) {
                 <div>
                     <button onClick={() => handleRemove({ dish })} className='add-to-cart-button'>Ta bort</button>
                     <button onClick={() => handleEdit({ dish, dishToEdit, setDishToEdit })} className='add-to-cart-button'>Ändra</button>
-                    {/* <Editform dish={dish} /> */}
                 </div>
             )
         }
@@ -127,19 +124,25 @@ const DishView = ({ menu, setMenu, dish, setDishIsOpen, }) => {
     )
 }
 
-const handleCategoryClick = (dishId, setMenu) => {
-    setMenu((prevMenu) => {
-        return prevMenu.map((dish) => {
-            if (dish.id === dishId) {
-                return { ...dish, expanded: !dish.expanded }
-            } else {
-                return { ...dish, expanded: false }
-            }
-        })
-    })
-}
 
 function MenuExpand({ menu, setMenu, setDishIsOpen }) {
+   
+
+    const handleCategoryClick = (dishId, setMenu) => {
+        setMenu((prevMenu) => {
+            return prevMenu.map((dish) => {
+                if (dish.id === dishId) {
+                    // setCategoryID(dishId)
+                    // sätt en category-state-variable till dish
+                    // console.log('dishId: ' + dish.id);
+                    return { ...dish, expanded: !dish.expanded }
+                } else {
+                    return { ...dish, expanded: false }
+                }
+            })
+        })
+    }
+
     let menuItems = menu.map(dish => {
 
         return (
@@ -157,17 +160,38 @@ function MenuExpand({ menu, setMenu, setDishIsOpen }) {
 }
 
 const ShowDishesInCategory = ({ menu, setDishIsOpen, setMenu }) => {
+    const [categoryID, setCategoryID] = useRecoilState(addToList)
+    const [overlay, setOverlay] = useRecoilState(overlayState)
+    const [list, setList] = useRecoilState(addToList)
+    const [loggedIn] = useRecoilState(loginState)
+    const addDishInMenu = (arr, dishID) => {
+        setOverlay(true)
+        setList(arr)
+        setCategoryID(dishID)
+        
+        // <Editform dish={dish} setMenu={setMenu}/>
+    }
+    // console.log(list);
     let menuItems = menu.map(dish => {
         if (dish.expanded) {
+            console.log( 'senaste', dish.id);
             return (
-                <ul className='dish-list' key={dish.name}>
-                    <MenuItems list={dish.items} setDishIsOpen={setDishIsOpen} menu={menu} setMenu={setMenu} />
-                </ul>
+                <>
+                    <ul className='dish-list' key={dish.name}>
+                        <MenuItems list={dish.items} setDishIsOpen={setDishIsOpen} menu={menu} setMenu={setMenu} />
+                    </ul>
+                    {loggedIn ?
+                        <div className='lägg-till-div'>
+                            <button className='add-new-dish-button ny-rätt' onClick={() => addDishInMenu(dish.items, dish.id)}>Lägg till ny rätt</button>
+
+                        </div> : null}
+                </>
             )
         }
     })
     return menuItems
 }
+
 
 
 const Menu = ({ menu, setMenu }) => {
@@ -178,7 +202,7 @@ const Menu = ({ menu, setMenu }) => {
 
     if (dishIsOpen == null && overlay == true) {
         return (
-            <Editform dish={dishState} />
+            <Editform setMenu={setMenu} />
         )
 
     } else if (dishIsOpen == null) {
@@ -192,7 +216,6 @@ const Menu = ({ menu, setMenu }) => {
                 </>
             </>
         )
-
     }
     else {
         return (
@@ -201,8 +224,6 @@ const Menu = ({ menu, setMenu }) => {
             </div>
         )
     }
-
-
 }
 
 
