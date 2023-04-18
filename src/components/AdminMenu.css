@@ -17,4 +17,5 @@ form {
     border: #2C4906 1px solid;
     padding: 0.2em;
     border-radius: 0.2em;
+    cursor: pointer;
 }

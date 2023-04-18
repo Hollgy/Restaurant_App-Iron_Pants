@@ -2,11 +2,21 @@
 import Hamburger from "hamburger-react";
 import React, { useState } from 'react';
 import { data } from "./NavBarData"
-import  LoggaInInput  from "./Signin"
+import LoggaInInput from "./Signin"
+import { useRecoilState } from 'recoil'
+import { renderStatee } from "../utils/conrend";
+
 
 
 const Header = () => {
     const [isOpen, setOpen] = useState(false)
+    const [render, setRender] = useRecoilState(renderStatee)
+    
+    const handleNavClick = (itemUrl) => {
+        setRender(itemUrl)
+        console.log(render);
+    }
+
     return (
         <header>
             <div className="header">
@@ -29,7 +39,7 @@ const Header = () => {
                 <nav className={!isOpen ? 'nav-wrapper' : 'nav-wrapper-active '}>
                     <ul>
                         {data.map((item, index) => (
-                            <li key={index}><a href={item.url}>{item.title}</a></li>
+                            <li key={index}><button className="nav-buttons" onClick={() => handleNavClick(item.url)}>{item.title}</button></li>
                         ))}
                     </ul>
                     <hr />
@@ -40,6 +50,7 @@ const Header = () => {
         </header>
     );
 };
+
 
 
 export default Header 
