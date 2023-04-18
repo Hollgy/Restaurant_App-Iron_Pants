@@ -8,8 +8,5 @@ export let data = [
 {title: 'Om Oss' 
  , url:'#'
 },
-{title: 'Varukorg',
- url:''
-}
 ]
 

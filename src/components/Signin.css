@@ -7,17 +7,18 @@
 
 
 .clicked input{
+    
     margin-bottom: 1em;
-    padding: .2em;
+    padding: .5em 1em;
 }
 
 .clicked label{
-    font-size: 22px;
+    font-size: 24px;
     padding-bottom: .2em;
 }
 
 .logga-in-btn{
-    font-size: 20px ;
+    font-size: 24px ;
     font-family: 'Mouse Memoirs'; 
     align-self: center;
     text-align: center;

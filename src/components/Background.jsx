@@ -5,7 +5,7 @@ const Background = () => {
     return (
         <div>
             <div>
-                <img className='background_image' src={background} alt="backdrop" />
+                {/* <img className='background_image' src={background} alt="backdrop" /> */}
             </div>
         </div>
     )

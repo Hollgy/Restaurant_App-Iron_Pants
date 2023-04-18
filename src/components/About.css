@@ -1,4 +1,7 @@
 .about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-image: url('/public/images/about_backdrop.jpg');
     background-size: cover;
     background-position: center;
@@ -8,7 +11,7 @@
 }
 
 .header-paragraf {
-
+    align-self: center;
     width: 210px;
     height: 200px;
 
