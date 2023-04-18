@@ -53,9 +53,12 @@ const IngredientBoxes = ({ dish }) => {
     const HandleCheckBoxChange = ({element}) => {
 
         return (
-            <input className="checkbox" type="checkbox" id={element.name} defaultChecked={ingsInDish.includes(element) ? true : false} />
+            <input className="checkbox" type="checkbox" id={element.name} defaultChecked={ingsInDish.some(obj => obj.name === element.name)} />
         )
     };
+    
+    // {ingsInDish.includes(element) ? true : false}
+    // defaultChecked={ingsInDish.some(obj => obj.name === element.name)}
 
 
     let jsxList = ings.map((element) => {
