@@ -6,17 +6,17 @@ function AboutUs() {
             <div className="about">
                 <img
                     className="header-paragraf"
-                    src="/public/images/Group21.png "
+                    src="/images/Group21.png "
                     alt="header-paragraf"
                 />
                 <img
                     className="chili-bg-right chili-bg"
-                    src="/public/images/chili_backdrop.png "
+                    src="/images/chili_backdrop.png "
                     alt="header-paragraf"
                 />
                 <img
                     className="chili-bg-left chili-bg"
-                    src="/public/images/chili_backdrop.png "
+                    src="/images/chili_backdrop.png "
                     alt="header-paragraf"
                 />
 

@@ -1,9 +1,9 @@
 
 import React from 'react';
-import ButtonImage1 from '/public/images/foodicon.png';
-import ButtonImage2 from '/public/images/drinksicon.png';
-import ButtonImage3 from '/public/images/eventicon.png';
-import ButtonImage4 from '/public/images/mapicon.png';
+import ButtonImage1 from '/images/foodicon.png';
+import ButtonImage2 from '/images/drinksicon.png';
+import ButtonImage3 from '/images/eventicon.png';
+import ButtonImage4 from '/images/mapicon.png';
 
 function Linkicons() {
     return (

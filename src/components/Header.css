@@ -28,3 +28,9 @@
     top: 1.5em;
     right: 1.5em;
 }
+
+.logo-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}

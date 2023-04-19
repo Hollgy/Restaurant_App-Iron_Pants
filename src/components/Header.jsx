@@ -26,11 +26,13 @@ const Header = () => {
                 </div>
 
                 <div className="header-container">
-                    <img
-                        className="logo"
-                        src="/public/images/LOGO.png"
-                        alt="Logotype"
-                    />
+                    <button className="logo-button" onClick={() => setRender('start')}>
+                        <img
+                            className="logo"
+                            src="/images/LOGO.png"
+                            alt="Logotype"
+                        />
+                    </button>
                 </div>
             </div>
 

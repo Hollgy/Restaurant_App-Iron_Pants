@@ -49,7 +49,7 @@ const LoggaInInput = () => {
                     <img
                         onClick={toggleLoggin}
                         className="inloggning-img"
-                        src="/public/images/Vector.png"
+                        src="/images/Vector.png"
                         alt="Logotype"
                     />
                     <p onClick={toggleLoggin} className="logga-in-paragraf">
@@ -113,7 +113,7 @@ const LoggaInInput = () => {
                     <img
                         onClick={toggleLoggin}
                         className="inloggning-img"
-                        src="/public/images/Vector.png"
+                        src="/images/Vector.png"
                         alt="Logotype"
                     />
                     <p onClick={toggleLoggin} className="logga-in-paragraf">

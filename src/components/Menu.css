@@ -173,7 +173,9 @@ body{
     cursor: pointer;
 }
 
-
+.dish-view{
+    margin-bottom: 15em;
+}
 
 @media screen and (min-width: 620px) {
 	.dish-image-small {

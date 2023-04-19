@@ -78,7 +78,7 @@ const FormCustomer = () => {
     // ✔️❌
 
     return (
-        <form className="form-wrapper">
+        <form className="form-wrapper" >
             <div className="form-inner">
                 <h1>Beställning</h1>
 
