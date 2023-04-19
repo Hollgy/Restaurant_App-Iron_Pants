@@ -24,7 +24,7 @@ import './components/ProductForm.css'
 import './components/form.css'
 
 function App() {
-    const [menu, setMenu] = useState(menuList);
+    // const [menu, setMenu] = useState(menuList);
     const [render] = useRecoilState(renderStatee)
 
     const Show = () => {
@@ -37,7 +37,8 @@ function App() {
             )
         } else if (render == 'menu') {
             return(
-                <Menu menu={menu} setMenu={setMenu} />
+                <Menu/>
+                // menu={menu} setMenu={setMenu}
             )
         } else if (render == 'about') {
             return(
