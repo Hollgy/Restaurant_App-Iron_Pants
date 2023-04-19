@@ -8,12 +8,9 @@
     gap: 7em;
     width: 100%;
     min-height: 100vh;
-    /* padding-bottom: 20em; */
     background-color: #8ace80;
-    /* display: none; */
 }
 .form-inner {
-    /* display: none; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -136,6 +133,7 @@ label {
     font-size: 24px;
     border: none;
     padding: 0.5em 0.8em;
+    cursor: pointer;
 }
 
 .return-to-start-button {

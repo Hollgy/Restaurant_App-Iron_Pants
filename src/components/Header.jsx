@@ -1,4 +1,3 @@
-// import NavBar from "./Navbar";
 import Hamburger from "hamburger-react";
 import React, { useState } from 'react';
 import { data } from "./NavBarData"
@@ -14,7 +13,7 @@ const Header = () => {
     
     const handleNavClick = (itemUrl) => {
         setRender(itemUrl)
-        console.log(render);
+
     }
 
     return (

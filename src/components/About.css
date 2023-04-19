@@ -43,7 +43,6 @@
         overflow-y: hidden;
         overflow-x: hidden;
         position: relative;
-        /* position: relative; */
         width: 100%;
         height: 100vh;
         display: flex;

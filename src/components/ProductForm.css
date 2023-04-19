@@ -28,9 +28,7 @@
     padding: 8px;
 }
 
-.delete.food {
-    /* margin-left: 20px; */
-}
+
 
 .food-image{
     height: 140px;
@@ -38,6 +36,4 @@
     border-top-right-radius: 0.25em;
     border-top-left-radius: 0.25em;
 }
-.food-name{
-    /* color: white; */
-}
+

@@ -65,7 +65,7 @@ const FormCustomer = () => {
 
     const handleNameChange = (e) => {
         setName(e.target.value);
-        // setNameIsDirty(true)
+        
     };
     const handlePhoneChange = (e) => {
         setNumber(e.target.value);
@@ -86,7 +86,6 @@ const FormCustomer = () => {
         }
     };
     const handleConfoBtn = (event) => {
-            event.preventDefault();
             setRender('start') 
     };
 
@@ -96,7 +95,7 @@ const FormCustomer = () => {
         <form className='form-wrapper' >
             <div className={hideOrder ? 'show-confo': 'hide-confo'}>
                 <h2>Tack för din Beställning!</h2>
-                <button className="return-to-start-button" onClick={handleConfoBtn} >Återvänd till start</button>
+                <button type="submit" className="return-to-start-button" onClick={handleConfoBtn} >Återvänd till start</button>
             </div>
             
             <div className={hideOrder ? 'hide-form' : 'form-inner'}>

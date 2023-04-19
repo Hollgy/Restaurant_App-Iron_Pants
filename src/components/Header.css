@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-
 .header {
     padding: 0.5em;
     background-color: #2C4906;
@@ -18,9 +17,7 @@
 }
 
 .logo {
-    /* width: 100px; */
     height: 80px;
-    /* z-index: 1; */
 }
 
 .hamburger-menu {

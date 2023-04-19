@@ -10,24 +10,18 @@
     align-items: center;
     align-content: center;
     flex-direction: column;
-    /* position: absolute; */
-    /* right: -200%; */
     color: white;
     font-size: 22px;
     background-color: #2c4906;
-    /* z-index: 1; */
 }
 .nav-wrapper-active {
     display: flex;
     align-content: center;
     flex-direction: column;
-    /* position: absolute; */
-    /* right: 0%; */
     color: white;
     padding: 10%;
     font-size: 30px;
     background-color: #2c4906;
-    /* z-index: 1; */
 }
 
 .header-nav li {

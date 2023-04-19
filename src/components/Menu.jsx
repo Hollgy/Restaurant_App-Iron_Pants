@@ -1,5 +1,3 @@
-import { useState } from "react";
-// import { loggedIn } from './Signin'
 import { useRecoilState } from "recoil";
 import { loginState } from "../utils/login";
 import { overlayState } from "../utils/overlay";
@@ -11,16 +9,8 @@ import Editform from "./AdminMenu";
 
 function MenuItems({ list, menu, setMenu }) {
     const [loggedIn] = useRecoilState(loginState);
-    const [overlay, setOverlay] = useRecoilState(overlayState);
-    const [dishToEdit, setDishToEdit] = useRecoilState(dishState);
     const [cart, setToCart] = useRecoilState(addToCartState);
 
-    // const handleEdit = ({ dish, dishToEdit, setDishToEdit }) => {
-    //     setDishToEdit(dish);
-    //     setOverlay(true);
-    //     // console.log(overlay);
-    // };
-    
     let targetDish = undefined;
     const onAddToCartClick = (targetDish, dish) => {
         for (let index = 0; targetDish == undefined; index++) {
@@ -50,13 +40,10 @@ function MenuItems({ list, menu, setMenu }) {
                     >
                         Ta bort
                     </button>
-            );
+            )
         } else if (!loggedIn) {
             return (
-              
-                    <button onClick={() => onAddToCartClick(targetDish, dish)} className="button add-to-cart ">Lägg till</button>
-
-                
+                    <button onClick={() => onAddToCartClick(targetDish, dish)} className="button add-to-cart ">Lägg till</button> 
             )
         }
     };
@@ -81,24 +68,6 @@ function MenuItems({ list, menu, setMenu }) {
     });
     return jsxList;
 }
-
-const Ingredients = ({ targetDish }) => {
-    let jsxList = targetDish.filling.map((filling) => {
-        return (
-            <li className="ingredient" key={filling.name}>
-                <div className="ingredient-image-container">
-                    <img
-                        className="ingredient-image"
-                        src={filling.image}
-                        alt={filling.name}
-                    />
-                </div>
-                <h4>{filling.name}</h4>
-            </li>
-        );
-    });
-    return jsxList;
-};
 
 
 function MenuExpand({ menu, setMenu }) {
@@ -149,7 +118,6 @@ const ShowDishesInCategory = ({ menu, setMenu }) => {
 
     let menuItems = menu.map((dish) => {
         if (dish.expanded) {
-            console.log("senaste", dish.id);
             return (
                 <>
                     <ul className="dish-list" key={dish.id}>
@@ -181,7 +149,6 @@ const ShowDishesInCategory = ({ menu, setMenu }) => {
 const Menu = () => {
     const [menu, setMenu] = useRecoilState(menuState)
     const [overlay, setOverlay] = useRecoilState(overlayState);
-    const [dishToEdit, setDishToEdit] = useRecoilState(dishState);
 
 const MenuWrapper = () => {
     if (overlay == true) {
@@ -205,12 +172,10 @@ const MenuWrapper = () => {
         );
     } 
 }
-
     return (
     <main className="menu-wrapper">
     <MenuWrapper/>
     </main>
-
     )
 };
 

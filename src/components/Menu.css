@@ -7,20 +7,14 @@ body{
 }
 
 .start-menu {
-	/* padding: 2em; */
-	/* border: 1px solid black; */
 	display: flex;
-	/* flex-direction: column; */
 	justify-content: space-around;
 	align-items: center;
-    /* height: 100vh; */
-    
 }
 
 .food-category-icon {
 	max-height: 100%;
 	max-width: 100%;
-	/* flex-grow: 1; */
 }
 
 
@@ -31,12 +25,10 @@ body{
 .dish-categories {
 	transition: all 0.2s ease-in-out;
 	border: none;
-	/* display: flex; */
 	padding: 0.5em 1em;
 	background-color: transparent;
 	cursor: pointer;
 	max-width: 10em;
-	/* max-height: 10em; */
 }
 
 .lägg-till-div{
@@ -44,9 +36,7 @@ body{
 	justify-content: center;
 }
 
-
 .category {
-	/* max-height: 100%; */
 	max-width: 100%;
 }
 
@@ -76,7 +66,6 @@ body{
 .dish-list {
 	display: grid;
 	grid-template-columns: 1fr;
-	/* flex-direction: column; */
 	gap: 2em;
 	margin: 2em 0;
 }
@@ -87,14 +76,10 @@ body{
 }
 
 .dish {
-
-	/* width: 70%; */
 	border-radius: 1em;
 	border: none;
 	padding: 1em 1em;
-	/* display: flex; */
 	display: grid;
-	/* grid-template-columns: 1fr 2fr 1fr; */
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 0.5fr 0.3fr 0.3fr;
 	grid-template-areas: 'img heading' 'img price' 'img button';
@@ -107,7 +92,6 @@ body{
 }
 
 .dish-container {
-	/* padding: 0.5em; */
 	text-align: center;
 	display: flex;
 	flex-direction: column;
@@ -189,7 +173,6 @@ body{
 
 @media screen and (min-width: 620px) {
 	.dish-image-small {
-		/* max-height: 10em; */
 		max-width: 12em;
 
 	}
@@ -200,9 +183,6 @@ body{
 
 	.dish {
 		padding: 1em 3em;
-		/* grid-template-columns: 1fr 2fr 1fr; */
-		/* grid-template-rows: 1fr 1fr; */
-		/* grid-template-areas: 'img heading' 'img price'; */
 	}
 
 
