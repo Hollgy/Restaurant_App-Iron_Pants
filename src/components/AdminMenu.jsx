@@ -1,94 +1,193 @@
+import { useState } from "react";
 import { useRecoilState } from "recoil"
 import { overlayState } from "../utils/overlay"
 import { addToList } from "../utils/addtolist";
-import { fillingStatee } from "../utils/filling";
-import { useState } from "react";
-import menuList from '../assets/menuArray'
-import { loginState } from '../utils/login'
-import { renderStatee } from "../utils/conrend";
-import { menuState } from "../utils/menu";
+import { findList } from './Menu.jsx'
+import { tacoState } from "../utils/tacos";
+import { burritoState } from "../utils/burritos";
+import { quesadillaState } from "../utils/quesadillas";
+import { sidesState } from "../utils/sides";
+import { isValidPrice, isValidDishName, isValidId, isValidUrl } from "../utils/validation";
 
 
-// För varje ingrediens skapa en label + checkbox
 const fillingList = []
 
 
-
-function Editform({ setMenu }) {
-    const [filling, setFilling] = useRecoilState(fillingStatee)
+function Editform() {
     const [overlay, setOverlay] = useRecoilState(overlayState)
-    const [categoryID, setCategoryID] = useRecoilState(addToList)
-    const [list, setList] = useState([]);
-    const [render, setRenderState] = useRecoilState(renderStatee)
-    const [menus, setMenus] = useRecoilState(menuState)
-    // const [newDish, setNewDish] = useState({});
+    const [categoryID] = useRecoilState(addToList)
+    const [tacos, setTacos] = useRecoilState(tacoState)
+    const [burritos, setBurritos] = useRecoilState(burritoState)
+    const [quesadillas, setQuesadillas] = useRecoilState(quesadillaState)
+    const [sides, setSides] = useRecoilState(sidesState)
+
+    const [price, setPrice] = useState('');
+    const [name, setName] = useState('');
+    const [id, setId] = useState('');
+    const [url, setUrl] = useState('');
+    const [priceIsDirty, setPriceIsDirty] = useState(false);
+    const [nameIsDirty, setNameIsDirty] = useState(false);
+    const [idIsDirty, setIdIsDirty] = useState(false);
+    const [urlIsDirty, setUrlIsDirty] = useState(false);
 
 
-    let newDish = {}
+
+    let nameIsValid = isValidDishName(name);
+    let priceIsValid = isValidPrice(price);
+    let idIsValid = isValidId(id);
+    let urlIsValid = isValidUrl(url);
+
+    const handleDishNameChange = (e) => {
+        setName(e.target.value);
+    };
+
+    const handlePriceChange = (e) => {
+        // setNumber(e.target.value);
+        // newDish.price = e.target.value
+        const result = e.target.value.replace(/\D/g, "");
+        setPrice(result);
+    };
+
+    const handleIdChange = (e) => {
+        setId(e.target.value);
+    };
+
+    const handleUrlChange = (e) => {
+        setUrl(e.target.value);
+    };
+
+    let newDish = {
+        item: name,
+        id: id,
+        image: url,
+        filling: [],
+        price: price
+    }
+
+
+    let list = findList()
 
     const backButton = () => {
         setOverlay(false)
     }
 
     const handleSubmit = (event) => {
-        event.preventDefault()
-        // console.log(categoryID);
-        // Leta i menyn efter objektet vars id matchar category-variabeln och lägg till newDish i objektets items-array
         newDish.filling = fillingList
-
-        // const updatedMenu = () => {
-
-        const newMenu = menus.map(category => {
-            console.log('första', category.id);
-            console.log( 'andra', categoryID);
-            if (category.id == categoryID) {
-                category.items.push(newDish)
-                console.log('orginal listan', category.items);
-            }
-        })
-        //     return newMenu
-        // }
-        // const targetCategory = menu.find(category => category.id == categoryID)
-        // let copy = [...categoryList, newDish]
-        setMenus(newMenu)
-        // console.log('nya listan', newMenu);
+        event.preventDefault()
+        let newList = [...list, newDish]
+        if (categoryID == 1) {
+            setTacos(newList)
+        }
+        else if (categoryID == 2) {
+            setBurritos(newList)
+        }
+        if (categoryID == 3) {
+            setQuesadillas(newList)
+        }
+        if (categoryID == 4) {
+            setSides(newList)
+        }
         setOverlay(false)
     }
-
 
 
     return (
         <div>
             <button className="back-button" onClick={backButton}>Tillbaka</button>
             <form action="#">
-                <label htmlFor='dish-name'>Namn på rätt:</label>
-                <input type="text" id='dish-name' onBlur={(e) => newDish.item = e.target.value} required />
-                <label htmlFor='dish-price' >Pris:</label>
-                <input type="text" id='dish-price' onBlur={(e) => newDish.price = e.target.value} required />
-                <label htmlFor='dish-id' >Id:</label>
-                <input type="text" id='dish-id' onBlur={(e) => newDish.id = e.target.value} required />
+                <div className="input-container">
+                    <label htmlFor='dish-name'>Namn på rätt:</label>
+                    <div className="field">
+                        <input
+                            type="text"
+                            id='dish-name'
+                            value={name}
+                            onChange={handleDishNameChange}
+                            onBlur={() => setNameIsDirty(true)}
+                            required />
+                        <span className="valid-name">
+                            {nameIsDirty ? (nameIsValid ? "✔️" : "❌") : ""}
+                        </span>
+                    </div>
+
+                    <label htmlFor='dish-price' >Pris:</label>
+                    <div className="field">
+                        <input
+                            type="text"
+                            pattern="[0-9]"
+                            id='dish-price'
+                            value={price}
+                            onChange={handlePriceChange}
+                            onBlur={() => setPriceIsDirty(true)}
+                            required />
+                        <span className="valid-price">
+                            {priceIsDirty ? (priceIsValid ? "✔️" : "❌") : ""}
+                        </span>
+                    </div>
+
+                    <label htmlFor='dish-id' >Id:</label>
+                    <div className="field">
+                        <input
+                            type="text"
+                            id='dish-id'
+                            value={id}
+                            onChange={handleIdChange}
+                            onBlur={() => setIdIsDirty(true)}
+                            required
+                            placeholder="ex. hardtacochicken" />
+                        <span className="valid-id">
+                            {idIsDirty ? (idIsValid ? "✔️" : "❌") : ""}
+                        </span>
+                    </div>
+
+                    <label htmlFor='dish-image' >Bild:</label>
+                    <div className="field">
+                        <input
+                            type="text"
+                            id='dish-image'
+                            value={url}
+                            onChange={handleUrlChange}
+                            onBlur={() => setUrlIsDirty(true)}
+                            required
+                            placeholder="Klistra in url här" />
+                        <span className="valid-url">
+                            {urlIsDirty ? (urlIsValid ? "✔️" : "❌") : ""}
+                        </span>
+                    </div>
+                </div>
+
                 <ul className="ingredient-list">
-                    <IngredientBoxes />
+                    <IngredientBoxes dishObject={newDish} />
                 </ul>
+
                 <button className="save-button" onClick={handleSubmit} >Spara</button>
+
             </form>
         </div>
     )
 }
 
-const IngredientBoxes = () => {
-
+const IngredientBoxes = ({ dishObject }) => {
+    const [tacos] = useRecoilState(tacoState)
+    const [burritos] = useRecoilState(burritoState)
+    const [quesadillas] = useRecoilState(quesadillaState)
+    const [sides] = useRecoilState(sidesState)
 
     let ings = []
-    menuList.forEach(category => {
-        category.items.forEach(item => {
+
+    let allCategories = [tacos, burritos, quesadillas, sides]
+
+    allCategories.forEach(list => {
+        list.forEach(item => {
             item.filling.forEach(ing => {
-                // console.log('ingrediens-objekt: ', ing)
                 if (!ings.find(i => i.name == ing.name))
                     ings.push(ing)
             })
         })
     })
+
+    let dishFillings = []
+
 
     const handleCheckboxChange = (element) => {
         fillingList.push(element)
@@ -96,11 +195,14 @@ const IngredientBoxes = () => {
 
 
     let jsxList = ings.map((element) => {
+        if (dishFillings.includes(element.name)) {
+        }
         return (
             <li key={element.name} className="ingredient">
-                <label className="dish-heading" htmlFor={element.name}>{element.name}</label>
-                <div>
+                <label className="dish-heading" htmlFor={element.name}>{element.name}
                     <img className='ingredient-image' src={element.image} alt={element.name} />
+                </label>
+                <div>
                     <input className="checkbox" type="checkbox" id={element.name} onChange={() => handleCheckboxChange(element)} />
                 </div>
             </li>

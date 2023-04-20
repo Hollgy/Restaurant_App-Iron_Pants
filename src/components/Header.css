@@ -10,11 +10,18 @@
     background-color: #2C4906;
     height: 8%;
     width: 100%;
+
 }
 
 .header-container {
     display: flex;
     justify-content: center;
+}
+
+.logo-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 .logo {

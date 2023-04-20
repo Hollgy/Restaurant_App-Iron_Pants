@@ -1,11 +1,9 @@
 import { useState } from 'react'
-import { useEffect } from 'react'
 import { useRecoilState } from 'recoil'
-import menuList from './assets/menuArray'
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
 import Body from './components/Body.jsx'
-import Menu from './components/Menu.jsx'
+import { Menu } from './components/Menu.jsx'
 import Linkicons from './components/Linkicons.jsx'
 import AboutUs from './components/About.jsx'
 import FormCustomer from './components/Form.jsx'
@@ -24,28 +22,27 @@ import './components/ProductForm.css'
 import './components/form.css'
 
 function App() {
-    const [menu, setMenu] = useState(menuList);
     const [render] = useRecoilState(renderStatee)
 
     const Show = () => {
         if (render == 'start') {
-            return(
-            <>
-                <Body />
-                <Linkicons />
-            </>
+            return (
+                <>
+                    <Body />
+                    <Linkicons />
+                </>
             )
         } else if (render == 'menu') {
-            return(
-                <Menu menu={menu} setMenu={setMenu} />
+            return (
+                <Menu />
             )
         } else if (render == 'about') {
-            return(
-                <AboutUs />   
+            return (
+                <AboutUs />
             )
         } else if (render == 'order') {
-            return(
-                <FormCustomer />   
+            return (
+                <FormCustomer />
             )
         }
     }

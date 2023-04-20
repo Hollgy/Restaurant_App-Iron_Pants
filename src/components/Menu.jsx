@@ -1,72 +1,71 @@
-import { useState } from 'react'
-// import { loggedIn } from './Signin'
 import { useRecoilState } from "recoil";
 import { loginState } from '../utils/login'
 import { overlayState } from "../utils/overlay";
-import { dishState } from "../utils/dishtoedit";
 import { addToCartState } from "../utils/Addtocart";
 import { addToList } from "../utils/addtolist";
+import { categoryState } from "../utils/categories";
+import { tacoState } from "../utils/tacos";
+import { burritoState } from "../utils/burritos";
+import { quesadillaState } from "../utils/quesadillas";
+import { sidesState } from "../utils/sides";
+import { dishIsOpen } from "../utils/dishIsOpen";
 import Editform from './AdminMenu';
 
 
-function MenuItems({ list, setDishIsOpen, menu, setMenu }) {
+function MenuItems({ list }) {
     const [loggedIn] = useRecoilState(loginState)
-    const [overlay, setOverlay] = useRecoilState(overlayState)
-    const [dishToEdit, setDishToEdit] = useRecoilState(dishState)
-    
+    const [categoryID] = useRecoilState(addToList)
+    const [tacos, setTacos] = useRecoilState(tacoState)
+    const [burritos, setBurritos] = useRecoilState(burritoState)
+    const [quesadillas, setQuesadillas] = useRecoilState(quesadillaState)
+    const [sides, setSides] = useRecoilState(sidesState)
+    const [showDish, setShowDish] = useRecoilState(dishIsOpen)
 
+    const handleRemove = (list, dish) => {
+        const newList = list.filter(item => item.id !== dish.id);
 
- 
-    const handleEdit = ({ dish, dishToEdit, setDishToEdit }) => {
-        setDishToEdit(dish)
-        setOverlay(true)
-        // console.log(overlay);
-    }
-
-
-    const handleRemove = ({ dish }) => {
-        const newMenu = menu.map(menuItem => {
-            if (menuItem.category !== dish.category) {
-                return menuItem;
-            }
-            const items = menuItem.items.filter(item => item.id !== dish.id);
-            return { ...menuItem, items };
-        });
-        setMenu(newMenu);
+        if (categoryID == 1) {
+            setTacos(newList)
+        } else if (categoryID == 2) {
+            setBurritos(newList)
+        } else if (categoryID == 3) {
+            setQuesadillas(newList)
+        } else if (categoryID == 4) {
+            setSides(newList)
+        }
     };
 
-    const Buttons = ({ dish }) => {
+    const handleDishClick = (dish) => {
+        setShowDish(dish.id)
+    }
+
+    const Buttons = ({ list, dish }) => {
         if (loggedIn) {
             return (
-                <div>
-                    <button onClick={() => handleRemove({ dish })} className='add-to-cart-button'>Ta bort</button>
-                    <button onClick={() => handleEdit({ dish, dishToEdit, setDishToEdit })} className='add-to-cart-button'>Ändra</button>
-                </div>
+                <button onClick={() => handleRemove(list, dish)} className='add-to-cart-button'>Ta bort</button>
+            )
+        } else {
+            return (
+                <AddToCartButton dish={dish} />
             )
         }
     }
 
 
     let jsxList = list.map((dish) => {
-        return <li key={dish.id}><button className='dish' onClick={() => handleDishClick(dish, setDishIsOpen)}>
-            <img className='dish-image-small' src={dish.image} alt={dish.item} />
-            <h3 className='dish-heading-start'>{dish.item}</h3>
-            <p className='price to-the-side'>{dish.price}:-</p>
-        </button>
-            <Buttons dish={dish} />
-        </li>
+        return (
+            <li key={dish.id}><button className='dish' onClick={() => handleDishClick(dish)}>
+                <img className='dish-image-small' src={dish.image} alt={dish.item} />
+                <h3 className='dish-heading-start'>{dish.item}</h3>
+                <p className='price to-the-side'>{dish.price}:-</p>
+            </button>
+                <Buttons dish={dish} list={list} />
+            </li>
+        )
     })
     return jsxList
 }
 
-const handleDishClick = (dish, setDishIsOpen) => {
-    setDishIsOpen(dish.id)
-}
-
-const backButton = (setMenu, dishId, setDishIsOpen) => {
-    setDishIsOpen(null)
-    handleCategoryClick(dishId, setMenu)
-}
 
 const Ingredients = ({ targetDish }) => {
     let jsxList = targetDish.filling.map(filling => {
@@ -82,32 +81,20 @@ const Ingredients = ({ targetDish }) => {
     return jsxList
 }
 
-const DishView = ({ menu, setMenu, dish, setDishIsOpen, }) => {
+const DishView = () => {
+    const [showDish, setShowDish] = useRecoilState(dishIsOpen)
 
-    const [loggedIn] = useRecoilState(loginState)
-    const [cart, setToCart] = useRecoilState(addToCartState);
-    let targetDish = undefined
-    for (let index = 0; targetDish == undefined; index++) {
-        targetDish = menu[index].items.find(item => item.id === dish);
-    }
+    let list = findList()
 
+    let targetDish = list.find(item => item.id === showDish)
 
-    const onAddToCartClick = (targetDish) =>{
-        let updatedCart = [...cart, targetDish]
-        setToCart(updatedCart) 
-    }
-
-    const Button = () => {
-        if (!loggedIn) {
-            return (
-                <button onClick={() => onAddToCartClick(targetDish)} className='add-to-cart-button'>Lägg till</button>
-            )
-        }
+    const backButton = () => {
+        setShowDish(null)
     }
 
     return (
         <>
-            <button className='back-button' onClick={() => backButton(setMenu, targetDish.id, setDishIsOpen)}>Tillbaka</button>
+            <button className='back-button' onClick={() => backButton()}>Tillbaka</button>
             <div className='dish-container'>
                 <div className='dish-image-container'>
                     <img className='food-image' src={targetDish.image} alt={targetDish.item} />
@@ -117,116 +104,133 @@ const DishView = ({ menu, setMenu, dish, setDishIsOpen, }) => {
                     <p className='price'>{targetDish.price}:-</p>
                 </div>
                 <ul className='ingredient-list'><Ingredients targetDish={targetDish} /></ul>
-                <Button />
+                <AddToCartButton dish={targetDish} />
 
             </div>
         </>
     )
 }
 
+const AddToCartButton = ({ dish }) => {
+    const [loggedIn] = useRecoilState(loginState)
+    const [cart, setToCart] = useRecoilState(addToCartState);
 
-function MenuExpand({ menu, setMenu, setDishIsOpen }) {
-   
-
-    const handleCategoryClick = (dishId, setMenu) => {
-        setMenu((prevMenu) => {
-            return prevMenu.map((dish) => {
-                if (dish.id === dishId) {
-                    // setCategoryID(dishId)
-                    // sätt en category-state-variable till dish
-                    // console.log('dishId: ' + dish.id);
-                    return { ...dish, expanded: !dish.expanded }
-                } else {
-                    return { ...dish, expanded: false }
-                }
-            })
-        })
+    const onAddToCartClick = (targetDish) => {
+        let updatedCart = [...cart, targetDish]
+        setToCart(updatedCart)
     }
 
-    let menuItems = menu.map(dish => {
+    if (!loggedIn) {
+        return (
+            <button onClick={() => onAddToCartClick(dish)} className='add-to-cart-button'>Lägg till</button>
+        )
+    }
+}
+
+
+function MenuExpand() {
+    const [categoryID, setCategoryID] = useRecoilState(addToList)
+    const [categories] = useRecoilState(categoryState)
+
+    const handleCategoryClick = (dishId) => {
+        categoryID == dishId ? setCategoryID(null) : setCategoryID(dishId)
+    }
+
+    let categoryItems = categories.map(category => {
 
         return (
-            <li className='dish-container' key={dish.name}>
-                <button className='dish-categories' onClick={() => handleCategoryClick(dish.id, setMenu)}>
+            <li className='dish-container' key={category.name}>
+                <button className='dish-categories' onClick={() => handleCategoryClick(category.id)}>
                     <div className='category'>
-                        <img className='food-category-icon' src={dish.icon} alt={dish.name} />
-                        <h2 className='food-category-heading'>{dish.name}</h2>
+                        <img className='food-category-icon' src={category.icon} alt={category.name} />
+                        <h2 className='food-category-heading'>{category.name}</h2>
                     </div>
                 </button>
             </li>
         )
     })
-    return menuItems
+    return categoryItems
 }
 
-const ShowDishesInCategory = ({ menu, setDishIsOpen, setMenu }) => {
-    const [categoryID, setCategoryID] = useRecoilState(addToList)
-    const [overlay, setOverlay] = useRecoilState(overlayState)
-    const [list, setList] = useRecoilState(addToList)
-    const [loggedIn] = useRecoilState(loginState)
-    const addDishInMenu = (arr, dishID) => {
-        setOverlay(true)
-        setList(arr)
-        setCategoryID(dishID)
-        
-        // <Editform dish={dish} setMenu={setMenu}/>
+const findList = () => {
+    const [categoryID] = useRecoilState(addToList)
+    const [tacos] = useRecoilState(tacoState)
+    const [burritos] = useRecoilState(burritoState)
+    const [quesadillas] = useRecoilState(quesadillaState)
+    const [sides] = useRecoilState(sidesState)
+
+    let list = []
+
+    if (categoryID == 1) {
+        list = tacos
     }
-    // console.log(list);
-    let menuItems = menu.map(dish => {
-        if (dish.expanded) {
-            console.log( 'senaste', dish.id);
-            return (
-                <>
-                    <ul className='dish-list' key={dish.name}>
-                        <MenuItems list={dish.items} setDishIsOpen={setDishIsOpen} menu={menu} setMenu={setMenu} />
-                    </ul>
-                    {loggedIn ?
-                        <div className='lägg-till-div'>
-                            <button className='add-new-dish-button ny-rätt' onClick={() => addDishInMenu(dish.items, dish.id)}>Lägg till ny rätt</button>
-
-                        </div> : null}
-                </>
-            )
-        }
-    })
-    return menuItems
+    else if (categoryID == 2) {
+        list = burritos
+    }
+    else if (categoryID == 3) {
+        list = quesadillas
+    }
+    else if (categoryID == 4) {
+        list = sides
+    } else {
+        list = []
+    }
+    return list
 }
 
-
-
-const Menu = ({ menu, setMenu }) => {
-    const [dishIsOpen, setDishIsOpen] = useState(null)
+const ShowDishesInCategory = () => {
+    const [loggedIn] = useRecoilState(loginState)
     const [overlay, setOverlay] = useRecoilState(overlayState)
-    const [dishToEdit, setDishToEdit] = useRecoilState(dishState)
+
+    let list = findList()
+
+    const addDishInMenu = () => {
+        setOverlay(true)
+    }
+
+    return (
+        <div key={list.key}>
+            <ul className='dish-list'>
+                <MenuItems list={list} />
+            </ul>
+            {loggedIn ?
+                <div className='lägg-till-div'>
+                    <button className='add-new-dish-button ny-rätt' onClick={addDishInMenu}>Lägg till ny rätt</button>
+
+                </div> : null}
+        </div>
+    )
+}
+
+const Menu = () => {
+    const [showDish] = useRecoilState(dishIsOpen)
+    const [overlay] = useRecoilState(overlayState)
+    const [categoryID] = useRecoilState(addToList)
 
 
-    if (dishIsOpen == null && overlay == true) {
+    if (showDish == null && overlay == true) {
         return (
-            <Editform setMenu={setMenu} />
+            <Editform />
         )
 
-    } else if (dishIsOpen == null) {
+    } else if (showDish == null) {
         return (
             <>
                 <ul className="start-menu">
-                    <MenuExpand menu={menu} setMenu={setMenu} setDishIsOpen={setDishIsOpen} />
+                    <MenuExpand />
                 </ul>
-                <>
-                    <ShowDishesInCategory menu={menu} setDishIsOpen={setDishIsOpen} setMenu={setMenu} />
-                </>
+                {categoryID != null ? <ShowDishesInCategory /> : null}
             </>
         )
     }
     else {
         return (
             <div className='dish-view'>
-                < DishView menu={menu} setMenu={setMenu} dish={dishIsOpen} setDishIsOpen={setDishIsOpen} />
+                < DishView />
             </div>
         )
     }
 }
 
 
-
-
-export default Menu
+export { Menu, findList }

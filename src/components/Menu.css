@@ -29,7 +29,7 @@
 	/* max-height: 10em; */
 }
 
-.lägg-till-div{
+.lägg-till-div {
 	display: flex;
 	justify-content: center;
 }
@@ -59,7 +59,7 @@
 	border-radius: 0.5em;
 	margin: 0.5em;
 	box-shadow: 0.2em 0.2em 0.4em gray;
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .dish-list {
@@ -127,7 +127,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
-    flex-wrap: wrap;
+	flex-wrap: wrap;
 }
 
 .ingredient {
@@ -154,7 +154,8 @@
 	grid-area: price;
 }
 
-.add-to-cart-button,.add-new-dish-button {
+.add-to-cart-button,
+.add-new-dish-button {
 	max-width: fit-content;
 	padding: 0.3em 0.8em;
 	font-size: 1.2em;
@@ -164,7 +165,7 @@
 	margin: 3em 0;
 	box-shadow: 0.2em 0.2em 0.4em gray;
 	align-self: center;
-    cursor: pointer;
+	cursor: pointer;
 }
 
 

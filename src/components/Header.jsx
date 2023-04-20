@@ -5,16 +5,18 @@ import { data } from "./NavBarData"
 import LoggaInInput from "./Signin"
 import { useRecoilState } from 'recoil'
 import { renderStatee } from "../utils/conrend";
+import { overlayState } from "../utils/overlay";
 
 
 
 const Header = () => {
     const [isOpen, setOpen] = useState(false)
     const [render, setRender] = useRecoilState(renderStatee)
-    
+    const [overlay, setOverlay] = useRecoilState(overlayState)
+
     const handleNavClick = (itemUrl) => {
         setRender(itemUrl)
-        console.log(render);
+        setOverlay(false)
     }
 
     return (
@@ -26,11 +28,13 @@ const Header = () => {
                 </div>
 
                 <div className="header-container">
-                    <img
-                        className="logo"
-                        src="/public/images/LOGO.png"
-                        alt="Logotype"
-                    />
+                    <button className="logo-button" onClick={() => setRender('start')}>
+                        <img
+                            className="logo"
+                            src="/public/images/LOGO.png"
+                            alt="Logotype"
+                        />
+                    </button>
                 </div>
             </div>
 
