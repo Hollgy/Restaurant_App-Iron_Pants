@@ -1,4 +1,9 @@
+.menu-wrapper {
+	min-height: 77vh;
+}
+
 .start-menu {
+	margin-top: 2em;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -53,6 +58,11 @@
 	box-shadow: 0.2em 0.2em 0.4em gray;
 	cursor: pointer;
 }
+
+.back-button:hover {
+	background-color: #d46d6d;
+}
+
 
 .dish-list {
 	display: grid;
@@ -151,6 +161,19 @@
 	box-shadow: 0.2em 0.2em 0.4em gray;
 	align-self: center;
 	cursor: pointer;
+}
+
+.button:hover,
+.add-new-dish-button:hover {
+	background-color: #59bd7a;
+}
+
+.remove {
+	background-color: #de8383;
+}
+
+.remove:hover {
+	background-color: #d46d6d;
 }
 
 

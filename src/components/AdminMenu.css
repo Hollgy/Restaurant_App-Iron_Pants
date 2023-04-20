@@ -28,11 +28,17 @@ form {
 
 .save-button {
     font-size: 125%;
-    background-color: #2C4906;
-    color: white;
-    border: #2C4906 1px solid;
+    background-color: #69da8f;
+    /* color: white; */
+    border: #69da8f 1px solid;
     padding: 0.4em 0.8em;
     border-radius: 0.2em;
     cursor: pointer;
     margin: 3em;
+}
+
+.save-button:hover {
+    background-color: #59bd7a;
+    border: #59bd7a 1px solid;
+
 }

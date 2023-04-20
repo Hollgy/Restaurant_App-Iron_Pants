@@ -42,7 +42,7 @@ function MenuItems({ list }) {
     const Buttons = ({ list, dish }) => {
         if (loggedIn) {
             return (
-                <button onClick={() => handleRemove(list, dish)} className='add-to-cart-button'>Ta bort</button>
+                <button onClick={() => handleRemove(list, dish)} className='button remove'>Ta bort</button>
             )
         } else {
             return (
@@ -120,7 +120,7 @@ const AddToCartButton = ({ dish }) => {
 
     if (!loggedIn) {
         return (
-            <button onClick={() => onAddToCartClick(dish)} className='add-to-cart-button'>Lägg till</button>
+            <button onClick={() => onAddToCartClick(dish)} className='button add-to-cart'>Lägg till</button>
         )
     }
 }
@@ -205,29 +205,37 @@ const Menu = () => {
     const [overlay] = useRecoilState(overlayState)
     const [categoryID] = useRecoilState(addToList)
 
+    const MenuWrapper = () => {
 
-    if (showDish == null && overlay == true) {
-        return (
-            <Editform />
-        )
 
-    } else if (showDish == null) {
-        return (
-            <>
-                <ul className="start-menu">
-                    <MenuExpand />
-                </ul>
-                {categoryID != null ? <ShowDishesInCategory /> : null}
-            </>
-        )
+        if (showDish == null && overlay == true) {
+            return (
+                <Editform />
+            )
+
+        } else if (showDish == null) {
+            return (
+                <>
+                    <ul className="start-menu">
+                        <MenuExpand />
+                    </ul>
+                    {categoryID != null ? <ShowDishesInCategory /> : null}
+                </>
+            )
+        }
+        else {
+            return (
+                <div className='dish-view'>
+                    < DishView />
+                </div>
+            )
+        }
     }
-    else {
-        return (
-            <div className='dish-view'>
-                < DishView />
-            </div>
-        )
-    }
+    return (
+        <main className="menu-wrapper">
+            <MenuWrapper />
+        </main>
+    )
 }
 
 
