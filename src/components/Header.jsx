@@ -1,4 +1,3 @@
-// import NavBar from "./Navbar";
 import Hamburger from "hamburger-react";
 import React, { useState } from 'react';
 import { data } from "./NavBarData"
@@ -6,7 +5,6 @@ import LoggaInInput from "./Signin"
 import { useRecoilState } from 'recoil'
 import { renderStatee } from "../utils/conrend";
 import { overlayState } from "../utils/overlay";
-
 
 
 const Header = () => {
@@ -54,7 +52,6 @@ const Header = () => {
         </header>
     );
 };
-
 
 
 export default Header 

@@ -9,7 +9,7 @@
         "build": "vite build",
         "preview": "vite preview",
         "predeploy": "npm run build",
-        "deploy": "gh-pages -d dist"
+        "deploy": "npx -y surge dist/"
     },
     "dependencies": {
         "hamburger-react": "^2.5.0",

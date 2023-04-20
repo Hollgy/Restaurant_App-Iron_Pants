@@ -68,8 +68,8 @@ function Editform() {
     let list = findList()
 
     const backButton = () => {
-        setOverlay(false)
-    }
+        setOverlay(false);
+    };
 
     const handleSubmit = (event) => {
         newDish.filling = fillingList
@@ -93,7 +93,9 @@ function Editform() {
 
     return (
         <div>
-            <button className="back-button" onClick={backButton}>Tillbaka</button>
+            <button className="back-button" onClick={backButton}>
+                Tillbaka
+            </button>
             <form action="#">
                 <div className="input-container">
                     <label htmlFor='dish-name'>Namn på rätt:</label>
@@ -164,7 +166,7 @@ function Editform() {
 
             </form>
         </div>
-    )
+    );
 }
 
 const IngredientBoxes = ({ dishObject }) => {
@@ -206,9 +208,9 @@ const IngredientBoxes = ({ dishObject }) => {
                     <input className="checkbox" type="checkbox" id={element.name} onChange={() => handleCheckboxChange(element)} />
                 </div>
             </li>
-        )
+        );
     });
-    return jsxList
-}
+    return jsxList;
+};
 
-export default Editform
+export default Editform;

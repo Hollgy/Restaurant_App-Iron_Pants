@@ -1,8 +1,13 @@
 
+.body{
+    position: relative;
+}
+
 .footer {
 	background-color: #2C4906;
 	padding: 2em 0;
 	width: 100%;
+
 }
 
 .footer-container {

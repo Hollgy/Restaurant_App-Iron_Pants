@@ -6,8 +6,8 @@ const Footer = () => {
 			<div className="footer-container">
 				<section className="footer-section">
 					<h3>Hitta till oss</h3>
-					<p>Tacovägen 18</p>
-					<p>Karlstad</p>
+					<p>Ryckepungsvägen 1</p>
+					<p>Falun</p>
 					<p>070 685 77 44</p>
 				</section>
 				<section className="footer-section">

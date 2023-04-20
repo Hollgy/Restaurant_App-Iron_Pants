@@ -3,7 +3,9 @@ import { useState } from "react";
 import { isValidFullName } from "../utils/validation";
 import { isValidPhonenumber } from "../utils/validation";
 import { addToCartState } from "../utils/Addtocart";
+import { renderStatee } from "../utils/conrend";
 import React, { useEffect } from 'react';
+
 
 function CartList() {
     const [cart, setCart] = useRecoilState(addToCartState);
@@ -50,6 +52,11 @@ const FormCustomer = () => {
     const [number, setNumber] = useState("");
     const [nameIsDirty, setNameIsDirty] = useState(false);
     const [phoneIsDirty, setPhoneIsDirty] = useState(false);
+    const [hideOrder, setHideOrder] = useState(false);
+    const [showConfo, setShowConfo ] = useState('show-confo');
+    const [showOrder, setShowOrder] = useState('show-order');
+    const [render, setRender] = useRecoilState(renderStatee)
+    
 
     
 
@@ -58,7 +65,7 @@ const FormCustomer = () => {
 
     const handleNameChange = (e) => {
         setName(e.target.value);
-        // setNameIsDirty(true)
+        
     };
     const handlePhoneChange = (e) => {
         setNumber(e.target.value);
@@ -67,19 +74,31 @@ const FormCustomer = () => {
     };
 
     const handleSubmit = (event) => {
-        // console.log(cart);
+    
 
         if (!nameIsValid || !phoneNumberIsValid) {
             event.preventDefault();
             return;
+        }else{
+            event.preventDefault();
+            setHideOrder(true);
+            
         }
+    };
+    const handleConfoBtn = (event) => {
+            setRender('start') 
     };
 
     // ✔️❌
 
     return (
-        <form className="form-wrapper">
-            <div className="form-inner">
+        <form className='form-wrapper' >
+            <div className={hideOrder ? 'show-confo': 'hide-confo'}>
+                <h2>Tack för din Beställning!</h2>
+                <button type="submit" className="return-to-start-button" onClick={handleConfoBtn} >Återvänd till start</button>
+            </div>
+            
+            <div className={hideOrder ? 'hide-form' : 'form-inner'}>
                 <h1>Beställning</h1>
 
                 <div className="form-inputs">

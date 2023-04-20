@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useRecoilState } from "recoil";
 import { loginState } from "../utils/login";
+import { renderStatee } from "../utils/conrend";
 
 const LoggaInInput = () => {
     const [clicked, setClicked] = useState("not-clicked");
@@ -8,6 +9,7 @@ const LoggaInInput = () => {
     const [password, setPassword] = useState("");
     const [loggedIn, setLoggedIn] = useRecoilState(loginState)
     const [showError, setShowError] = useState('dont-show-error');
+    const [render, setRender] = useRecoilState(renderStatee)
 
 
 
@@ -30,6 +32,7 @@ const LoggaInInput = () => {
             setShowError('dont-show-error');
             setUsername('')
             setPassword('')
+            setRender('menu')
         } else {
             setShowError('show-error');
         }
@@ -49,7 +52,7 @@ const LoggaInInput = () => {
                     <img
                         onClick={toggleLoggin}
                         className="inloggning-img"
-                        src="/public/images/Vector.png"
+                        src="/images/Vector.png"
                         alt="Logotype"
                     />
                     <p onClick={toggleLoggin} className="logga-in-paragraf">
@@ -113,7 +116,7 @@ const LoggaInInput = () => {
                     <img
                         onClick={toggleLoggin}
                         className="inloggning-img"
-                        src="/public/images/Vector.png"
+                        src="/images/Vector.png"
                         alt="Logotype"
                     />
                     <p onClick={toggleLoggin} className="logga-in-paragraf">

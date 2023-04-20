@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil";
-import { loginState } from '../utils/login'
+import { loginState } from "../utils/login";
 import { overlayState } from "../utils/overlay";
 import { addToCartState } from "../utils/Addtocart";
 import { addToList } from "../utils/addtolist";
@@ -49,8 +49,7 @@ function MenuItems({ list }) {
                 <AddToCartButton dish={dish} />
             )
         }
-    }
-
+    };
 
     let jsxList = list.map((dish) => {
         return (
@@ -74,7 +73,6 @@ const Ingredients = ({ targetDish }) => {
                 <div className='ingredient-image-container'>
                     <img className='ingredient-image' src={filling.image} alt={filling.name} />
                 </div>
-                <h4>{filling.name}</h4>
             </li>
         )
     })
