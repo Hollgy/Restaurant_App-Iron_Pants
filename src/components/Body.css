@@ -8,12 +8,14 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-attachment:scroll;
+    background-attachment: scroll;
 }
 
-.kolla-meny{
+.kolla-meny {
     width: 100%;
+    cursor: pointer;
 }
+
 .body-pic {
     /* height: 75vh; */
     display: block;
@@ -48,8 +50,8 @@
 
 
 @media (min-width: 984px) {
-    .kolla-meny{
-    width: auto;
-}
-    
+    .kolla-meny {
+        width: auto;
+    }
+
 }

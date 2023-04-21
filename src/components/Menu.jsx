@@ -73,6 +73,7 @@ const Ingredients = ({ targetDish }) => {
                 <div className='ingredient-image-container'>
                     <img className='ingredient-image' src={filling.image} alt={filling.name} />
                 </div>
+                <p>{filling.name}</p>
             </li>
         )
     })

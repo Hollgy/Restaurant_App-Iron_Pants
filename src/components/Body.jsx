@@ -1,7 +1,16 @@
-const Body = () =>{
-    return(
+import { useRecoilState } from "recoil";
+import { renderStatee } from '../utils/conrend.js'
+
+const Body = () => {
+    const [render, setRender] = useRecoilState(renderStatee)
+
+    const handleClick = () => {
+        setRender('menu')
+    }
+
+    return (
         <section className="wrapper">
-           <a href=""><img className="kolla-meny" src="/images/Testtext.png" alt="" />  </a> 
+            <img className="kolla-meny" src="/images/Testtext.png" alt="" onClick={handleClick} />
         </section>
     )
 }

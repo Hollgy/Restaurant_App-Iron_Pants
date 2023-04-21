@@ -10,41 +10,41 @@ import React, { useEffect } from 'react';
 function CartList() {
     const [cart, setCart] = useRecoilState(addToCartState);
     const [price, setPrice] = useState(0);
-    
+
     useEffect(() => {
-      const totalPrice = cart.reduce((acc, item) => acc + parseFloat(item.price), 0);
-      setPrice(totalPrice);
+        const totalPrice = cart.reduce((acc, item) => acc + parseFloat(item.price), 0);
+        setPrice(totalPrice);
     }, [cart]);
 
     const removeItem = (itemName, itemPrice) => {
         const index = cart.findIndex((item) => item.item === itemName);
         if (index !== -1) {
-          const updatedCart = [...cart];
-          updatedCart.splice(index, 1);
-          setCart(updatedCart);
-          setPrice(price - parseFloat(itemPrice));
+            const updatedCart = [...cart];
+            updatedCart.splice(index, 1);
+            setCart(updatedCart);
+            setPrice(price - parseFloat(itemPrice));
         }
-      };
-    
+    };
+
     const itemList = cart.map((item) => (
         <div className="item-div">
             <li className="item-li" key={item.id}>
-              <p className="item-p">{item.item}</p>
+                <p className="item-p">{item.item}</p>
             </li>
-              <p className="ta-bort" onClick={() => removeItem(item.item, item.price)}>🗑️</p>
-            
+            <p className="ta-bort" onClick={() => removeItem(item.item, item.price)}>🗑️</p>
+
         </div>
     ));
-    
+
     return (
-      <>
-        <ul>
-          {itemList}
-        </ul>
-        <p>Totalt: {price} kr</p>
-      </>
+        <>
+            <ul>
+                {itemList}
+            </ul>
+            <p>Totalt: {price} kr</p>
+        </>
     );
-  }
+}
 
 
 const FormCustomer = () => {
@@ -53,19 +53,17 @@ const FormCustomer = () => {
     const [nameIsDirty, setNameIsDirty] = useState(false);
     const [phoneIsDirty, setPhoneIsDirty] = useState(false);
     const [hideOrder, setHideOrder] = useState(false);
-    const [showConfo, setShowConfo ] = useState('show-confo');
+    const [showConfo, setShowConfo] = useState('show-confo');
     const [showOrder, setShowOrder] = useState('show-order');
     const [render, setRender] = useRecoilState(renderStatee)
-    
 
-    
 
     let nameIsValid = isValidFullName(name);
     let phoneNumberIsValid = isValidPhonenumber(number);
 
     const handleNameChange = (e) => {
         setName(e.target.value);
-        
+
     };
     const handlePhoneChange = (e) => {
         setNumber(e.target.value);
@@ -74,30 +72,30 @@ const FormCustomer = () => {
     };
 
     const handleSubmit = (event) => {
-    
+
 
         if (!nameIsValid || !phoneNumberIsValid) {
             event.preventDefault();
             return;
-        }else{
+        } else {
             event.preventDefault();
             setHideOrder(true);
-            
+
         }
     };
     const handleConfoBtn = (event) => {
-            setRender('start') 
+        setRender('start')
     };
 
     // ✔️❌
 
     return (
         <form className='form-wrapper' >
-            <div className={hideOrder ? 'show-confo': 'hide-confo'}>
+            <div className={hideOrder ? 'show-confo' : 'hide-confo'}>
                 <h2>Tack för din Beställning!</h2>
                 <button type="submit" className="return-to-start-button" onClick={handleConfoBtn} >Återvänd till start</button>
             </div>
-            
+
             <div className={hideOrder ? 'hide-form' : 'form-inner'}>
                 <h1>Beställning</h1>
 
@@ -194,8 +192,8 @@ const FormCustomer = () => {
 
 
                 <div className="price-paragraf">
-                  
-                <CartList  />
+
+                    <CartList />
                 </div>
 
                 <button

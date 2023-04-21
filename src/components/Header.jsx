@@ -5,16 +5,22 @@ import LoggaInInput from "./Signin"
 import { useRecoilState } from 'recoil'
 import { renderStatee } from "../utils/conrend";
 import { overlayState } from "../utils/overlay";
+import { dishIsOpen } from "../utils/dishIsOpen";
+import { addToList } from "../utils/addtolist";
 
 
 const Header = () => {
     const [isOpen, setOpen] = useState(false)
     const [render, setRender] = useRecoilState(renderStatee)
     const [overlay, setOverlay] = useRecoilState(overlayState)
+    const [showDish, setShowDish] = useRecoilState(dishIsOpen)
+    const [categoryID, setCategoryID] = useRecoilState(addToList)
 
     const handleNavClick = (itemUrl) => {
         setRender(itemUrl)
         setOverlay(false)
+        setShowDish(null)
+        setCategoryID(null)
     }
 
     return (
