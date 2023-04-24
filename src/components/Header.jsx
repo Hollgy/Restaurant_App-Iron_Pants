@@ -35,7 +35,7 @@ const Header = () => {
                     <button className="logo-button" onClick={() => setRender('start')}>
                         <img
                             className="logo"
-                            src="/public/images/LOGO.png"
+                            src="/images/LOGO.png"
                             alt="Logotype"
                         />
                     </button>
